@@ -1,3 +1,4 @@
+import heroPhoto from '../assets/img/hero-photo.jpg';
 function HeroSection() {
     return (
         <section id="hero" className="hero-section">
@@ -44,11 +45,7 @@ function HeroSection() {
 
                     <div className="col-lg-6">
                         <div className="hero-image-card">
-                            <img
-                                src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=900&q=80"
-                                alt="Retrato profesional cálido para la sección principal"
-                                className="img-fluid hero-image"
-                            />
+                            <img src={heroPhoto} alt="María Cervantes" className="img-fluid hero-image" />
                         </div>
                     </div>
                 </div>
