@@ -4,11 +4,15 @@ function Header() {
             <nav className="navbar navbar-expand-lg custom-navbar fixed-top">
                 <div className="container">
                     <a className="navbar-brand brand-wrapper" href="#hero">
-                        <div className="brand-mark"></div>
+                        <img
+                            src="/mariposa-navbar@2x.png"
+                            alt="María Cervantes"
+                            className="navbar-icon"
+                        />
 
                         <div className="brand-text">
                             <span className="brand-title">María Cervantes</span>
-                            <span className="brand-subtitle">Psicología y Tanatología</span>
+                            <span className="brand-subtitle">Psicóloga • Tanatóloga</span>
                         </div>
                     </a>
 
