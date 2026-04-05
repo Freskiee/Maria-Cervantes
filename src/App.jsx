@@ -1,6 +1,7 @@
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import Footer from './components/Footer';
+import AboutSection from "./components/AboutSection";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
 
       <main>
         <HeroSection />
+
 
         <section id="trust" className="section-placeholder">
           <div className="container">
@@ -20,7 +22,8 @@ function App() {
           </div>
         </section>
 
-        <section id="about" className="section-placeholder section-soft">
+        <AboutSection />
+        {/* <section id="about" className="section-placeholder section-soft">
           <div className="container">
             <h2 className="section-title">Sobre mí</h2>
             <p className="section-text">
@@ -28,7 +31,7 @@ function App() {
               para credenciales.
             </p>
           </div>
-        </section>
+        </section> */}
 
         <section id="services" className="section-placeholder">
           <div className="container">

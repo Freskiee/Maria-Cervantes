@@ -1,0 +1,111 @@
+.about-wave-section {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-bg);
+  padding: 10rem 0 10rem;
+  min-height: 100vh;
+}
+
+.about-wave-content {
+  position: relative;
+  z-index: 2;
+}
+
+.about-wave-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-wave-kicker {
+  display: inline-block;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.about-wave-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.7rem, 5vw, 5rem);
+  line-height: 1.05;
+  color: #1b4f4b;
+  margin-bottom: 1.5rem;
+}
+
+.about-wave-text {
+  font-size: 1.12rem;
+  line-height: 1.9;
+  color: var(--color-text-soft);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.about-wave {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.about-wave svg {
+  display: block;
+  width: 100%;
+  height: 220px;
+}
+
+.about-wave-top {
+  top: 0;
+}
+
+.about-wave-bottom {
+  bottom: 0;
+}
+
+@media (max-width: 991.98px) {
+  .about-wave-section {
+    padding: 8rem 0 8rem;
+    min-height: auto;
+  }
+
+  .about-wave-title {
+    font-size: clamp(2.2rem, 7vw, 3.5rem);
+  }
+
+  .about-wave-text {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .about-wave svg {
+    height: 180px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .about-wave-section {
+    padding: 6.5rem 0 6.5rem;
+  }
+
+  .about-wave-inner {
+    text-align: left;
+  }
+
+  .about-wave-title {
+    font-size: 2.4rem;
+    line-height: 1.08;
+    margin-bottom: 1rem;
+  }
+
+  .about-wave-text {
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+
+  .about-wave svg {
+    height: 145px;
+  }
+}
