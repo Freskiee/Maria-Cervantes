@@ -8,7 +8,7 @@
 
 .about-wave-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .about-wave-inner {
@@ -19,7 +19,7 @@
 
 .about-wave-kicker {
   display: inline-block;
-  font-size: 1.05rem;
+  font-size: 0.88rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -48,7 +48,6 @@
   left: 0;
   width: 100%;
   pointer-events: none;
-  z-index: 1;
 }
 
 .about-wave svg {
@@ -65,6 +64,15 @@
   bottom: 0;
 }
 
+.about-wave-front {
+  z-index: 2;
+}
+
+.about-wave-back {
+  z-index: 1;
+}
+
+/* TABLET */
 @media (max-width: 991.98px) {
   .about-wave-section {
     padding: 8rem 0 8rem;
@@ -85,6 +93,7 @@
   }
 }
 
+/* MÓVIL */
 @media (max-width: 575.98px) {
   .about-wave-section {
     padding: 6.5rem 0 6.5rem;

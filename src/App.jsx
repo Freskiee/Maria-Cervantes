@@ -2,6 +2,8 @@ import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import Footer from './components/Footer';
 import AboutSection from "./components/AboutSection";
+import HelpSection from './components/HelpSection';
+import ServicesSection from './components/ServicesSection';
 
 function App() {
   return (
@@ -10,9 +12,10 @@ function App() {
 
       <main>
         <HeroSection />
-
-
-        <section id="trust" className="section-placeholder">
+        <AboutSection />
+        <HelpSection />
+        <ServicesSection />
+        {/* <section id="trust" className="section-placeholder section-soft">
           <div className="container">
             <h2 className="section-title">Bloque de confianza</h2>
             <p className="section-text">
@@ -20,9 +23,9 @@ function App() {
               enfoque emocional y confidencialidad.
             </p>
           </div>
-        </section>
+        </section> */}
 
-        <AboutSection />
+        
         {/* <section id="about" className="section-placeholder section-soft">
           <div className="container">
             <h2 className="section-title">Sobre mí</h2>
@@ -33,7 +36,7 @@ function App() {
           </div>
         </section> */}
 
-        <section id="services" className="section-placeholder">
+        {/* <section id="services" className="section-placeholder">
           <div className="container">
             <h2 className="section-title">Servicios</h2>
             <p className="section-text">
@@ -41,7 +44,7 @@ function App() {
               sesiones online y contención emocional en crisis.
             </p>
           </div>
-        </section>
+        </section> */}
 
         <section id="contact" className="section-placeholder section-soft">
           <div className="container">
