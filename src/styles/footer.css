@@ -1,0 +1,140 @@
+.site-footer {
+  background:
+    linear-gradient(180deg, rgba(250, 248, 245, 0.97) 0%, rgba(244, 239, 231, 0.99) 100%);
+  padding: 2rem 0 1.6rem;
+  border-top: 1px solid rgba(47, 134, 246, 0.04);
+}
+
+.site-footer__top-line {
+  width: 100%;
+  height: 1px;
+  background: rgba(47, 134, 246, 0.1);
+  margin-bottom: 1.6rem;
+}
+
+.site-footer__row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.site-footer__col--left {
+  justify-self: start;
+}
+
+.site-footer__col--center {
+  justify-self: center;
+}
+
+.site-footer__col--right {
+  justify-self: end;
+}
+
+.site-footer__copyright {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #746d66;
+  line-height: 1.5;
+}
+
+.site-footer__logo-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(47, 134, 246, 0.08);
+  transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+}
+
+.site-footer__logo-link:hover {
+  transform: translateY(-1px);
+  border-color: rgba(47, 134, 246, 0.16);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.site-footer__logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.site-footer__nav {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.site-footer__nav a {
+  font-size: 0.94rem;
+  color: #5e5852;
+  text-decoration: none;
+  transition: color 0.22s ease;
+}
+
+.site-footer__nav a:hover {
+  color: var(--color-primary);
+}
+
+/* TABLET */
+@media (max-width: 991.98px) {
+  .site-footer {
+    padding: 1.8rem 0 1.4rem;
+  }
+
+  .site-footer__row {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .site-footer__col--left,
+  .site-footer__col--center,
+  .site-footer__col--right {
+    justify-self: center;
+  }
+
+  .site-footer__nav {
+    justify-content: center;
+  }
+}
+
+/* MÓVIL */
+@media (max-width: 575.98px) {
+  .site-footer {
+    padding: 1.6rem 0 1.2rem;
+  }
+
+  .site-footer__top-line {
+    margin-bottom: 1.2rem;
+  }
+
+  .site-footer__copyright {
+    font-size: 0.86rem;
+  }
+
+  .site-footer__logo-link {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+  }
+
+  .site-footer__logo {
+    width: 24px;
+    height: 24px;
+  }
+
+  .site-footer__nav {
+    gap: 0.85rem 1rem;
+  }
+
+  .site-footer__nav a {
+    font-size: 0.9rem;
+  }
+}
