@@ -7,40 +7,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 function AboutSection() {
   const sectionRef = useRef(null);
-
-  const topWaveFrontRef = useRef(null);
-  const topWaveBackRef = useRef(null);
-  const bottomWaveFrontRef = useRef(null);
-  const bottomWaveBackRef = useRef(null);
+  const topWaveRef = useRef(null);
+  const bottomWaveRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      /* CAPAS DE ATRÁS: PARALLAX SUAVE CON SCROLL */
-      gsap.to(topWaveBackRef.current, {
-        y: -18,
-        x: -12,
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
-
-      gsap.to(bottomWaveBackRef.current, {
-        y: 18,
-        x: 12,
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
-
-      /* OLA SUPERIOR: MORPH CON SCROLL */
       gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -49,26 +20,25 @@ function AboutSection() {
           scrub: 1.2,
         },
       })
-        .to(topWaveFrontRef.current, {
+        .to(topWaveRef.current, {
           attr: {
             d: "M0,150 C140,235 320,20 620,95 C880,155 1120,195 1440,70 L1440,0 L0,0 Z",
           },
           ease: "none",
         })
-        .to(topWaveFrontRef.current, {
+        .to(topWaveRef.current, {
           attr: {
             d: "M0,135 C180,255 350,35 650,55 C900,75 1140,230 1440,100 L1440,0 L0,0 Z",
           },
           ease: "none",
         })
-        .to(topWaveFrontRef.current, {
+        .to(topWaveRef.current, {
           attr: {
             d: "M0,155 C170,220 330,45 620,72 C860,95 1120,205 1440,88 L1440,0 L0,0 Z",
           },
           ease: "none",
         });
 
-      /* OLA INFERIOR: MORPH CON SCROLL */
       gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -77,19 +47,19 @@ function AboutSection() {
           scrub: 1.4,
         },
       })
-        .to(bottomWaveFrontRef.current, {
+        .to(bottomWaveRef.current, {
           attr: {
             d: "M0,105 C220,25 390,220 690,145 C980,75 1160,55 1440,135 L1440,220 L0,220 Z",
           },
           ease: "none",
         })
-        .to(bottomWaveFrontRef.current, {
+        .to(bottomWaveRef.current, {
           attr: {
             d: "M0,135 C250,60 410,205 700,175 C980,145 1140,15 1440,110 L1440,220 L0,220 Z",
           },
           ease: "none",
         })
-        .to(bottomWaveFrontRef.current, {
+        .to(bottomWaveRef.current, {
           attr: {
             d: "M0,120 C230,40 360,210 650,165 C920,120 1110,35 1440,120 L1440,220 L0,220 Z",
           },
@@ -102,22 +72,11 @@ function AboutSection() {
 
   return (
     <section className="about-wave-section" id="about" ref={sectionRef}>
-      {/* CAPA SUPERIOR ATRÁS */}
-      <div className="about-wave about-wave-top about-wave-back" ref={topWaveBackRef}>
+      {/* OLA SUPERIOR ÚNICA */}
+      <div className="about-wave about-wave-top">
         <svg viewBox="0 0 1440 220" preserveAspectRatio="none">
           <path
-            d="M0,150 C160,250 330,30 620,70 C860,100 1120,210 1440,90 L1440,0 L0,0 Z"
-            fill="#5cb9f3"
-            opacity="0.42"
-          />
-        </svg>
-      </div>
-
-      {/* CAPA SUPERIOR FRENTE */}
-      <div className="about-wave about-wave-top about-wave-front">
-        <svg viewBox="0 0 1440 220" preserveAspectRatio="none">
-          <path
-            ref={topWaveFrontRef}
+            ref={topWaveRef}
             d="M0,150 C160,250 330,30 620,70 C860,100 1120,210 1440,90 L1440,0 L0,0 Z"
             fill="#2f86f6"
           />
@@ -127,7 +86,9 @@ function AboutSection() {
       <div className="container about-wave-content">
         <div className="about-wave-inner">
           <span className="about-wave-kicker">Sobre mí</span>
+
           <h2 className="about-wave-title">Conoce más acerca de mí</h2>
+
           <p className="about-wave-text">
             Soy psicóloga y tanatóloga, y acompaño a personas en procesos de
             duelo, pérdida, crisis emocionales y transición vital. Mi propósito
@@ -137,22 +98,11 @@ function AboutSection() {
         </div>
       </div>
 
-      {/* CAPA INFERIOR ATRÁS */}
-      <div className="about-wave about-wave-bottom about-wave-back" ref={bottomWaveBackRef}>
+      {/* OLA INFERIOR ÚNICA */}
+      <div className="about-wave about-wave-bottom">
         <svg viewBox="0 0 1440 220" preserveAspectRatio="none">
           <path
-            d="M0,120 C230,40 360,210 650,165 C920,120 1110,35 1440,120 L1440,220 L0,220 Z"
-            fill="#a7ebf3"
-            opacity="0.5"
-          />
-        </svg>
-      </div>
-
-      {/* CAPA INFERIOR FRENTE */}
-      <div className="about-wave about-wave-bottom about-wave-front">
-        <svg viewBox="0 0 1440 220" preserveAspectRatio="none">
-          <path
-            ref={bottomWaveFrontRef}
+            ref={bottomWaveRef}
             d="M0,120 C230,40 360,210 650,165 C920,120 1110,35 1440,120 L1440,220 L0,220 Z"
             fill="#77d7e6"
           />
