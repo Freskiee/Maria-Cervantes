@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "../styles/navbar.css";
 
 const MOBILE_BREAKPOINT = 1200;
+const TOP_TARGET = "__TOP__";
 
 function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -75,6 +76,13 @@ function Navbar() {
         });
     };
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    };
+
     useEffect(() => {
         const body = document.body;
         const html = document.documentElement;
@@ -91,21 +99,32 @@ function Navbar() {
             body.classList.contains("menu-open") || html.classList.contains("menu-open");
 
         if (wasLocked) {
+            const restoreY = scrollLockYRef.current;
+            const pendingTarget = pendingScrollTargetRef.current;
+
             body.classList.remove("menu-open");
             html.classList.remove("menu-open");
             body.style.top = "";
 
-            const restoreY = scrollLockYRef.current;
+            const previousScrollBehavior = html.style.scrollBehavior;
+            html.style.scrollBehavior = "auto";
             window.scrollTo(0, restoreY);
+            html.style.scrollBehavior = previousScrollBehavior;
 
-            if (pendingScrollTargetRef.current) {
-                const selector = pendingScrollTargetRef.current;
+            if (pendingTarget) {
                 pendingScrollTargetRef.current = null;
 
                 requestAnimationFrame(() => {
                     requestAnimationFrame(() => {
-                        scrollToSelector(selector);
-                        setActiveMobileLink("");
+                        if (pendingTarget === TOP_TARGET) {
+                            scrollToTop();
+                        } else {
+                            scrollToSelector(pendingTarget);
+                        }
+
+                        setTimeout(() => {
+                            setActiveMobileLink("");
+                        }, 260);
                     });
                 });
             }
@@ -118,18 +137,25 @@ function Navbar() {
         };
     }, [isMenuOpen]);
 
+    const toggleMenu = () => {
+        if (isMenuOpen) {
+            pendingScrollTargetRef.current = null;
+            setActiveMobileLink("");
+            setIsMenuOpen(false);
+            return;
+        }
 
+        setActiveMobileLink("");
+        pendingScrollTargetRef.current = null;
+        setIsMenuOpen(true);
+    };
 
     const closeMenuOnly = () => {
         if (window.innerWidth < MOBILE_BREAKPOINT) {
+            pendingScrollTargetRef.current = null;
+            setActiveMobileLink("");
             setIsMenuOpen(false);
         }
-    };
-
-    const toggleMenu = () => {
-        setActiveMobileLink("");
-        pendingScrollTargetRef.current = null;
-        setIsMenuOpen((prev) => !prev);
     };
 
     const handleSectionClick = (e, selector) => {
@@ -155,17 +181,24 @@ function Navbar() {
         e.currentTarget.blur();
 
         if (window.innerWidth < MOBILE_BREAKPOINT) {
-            setActiveMobileLink("top");
-            pendingScrollTargetRef.current = "#hero";
+            setActiveMobileLink(TOP_TARGET);
+            pendingScrollTargetRef.current = TOP_TARGET;
 
-            setTimeout(() => {
-                setIsMenuOpen(false);
-            }, 150);
+            if (isMenuOpen) {
+                setTimeout(() => {
+                    setIsMenuOpen(false);
+                }, 150);
+            } else {
+                scrollToTop();
+                setTimeout(() => {
+                    setActiveMobileLink("");
+                }, 220);
+            }
 
             return;
         }
 
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        scrollToTop();
     };
 
     return (

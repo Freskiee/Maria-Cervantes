@@ -6,9 +6,7 @@
   align-items: center;
   z-index: 1030;
   box-shadow: 0 4px 18px rgba(28, 66, 108, 0.03);
-  transition:
-    border-color 0.28s ease,
-    box-shadow 0.28s ease;
+  transition: border-color 0.28s ease, box-shadow 0.28s ease;
 }
 
 .custom-navbar.fixed-top {
@@ -84,11 +82,13 @@
   font-weight: 500;
   font-size: 0.98rem;
   padding: 0.32rem 0.12rem;
-  transition:
-    color 0.24s ease,
-    background 0.24s ease,
-    opacity 0.24s ease;
+  transition: color 0.24s ease, background 0.24s ease, opacity 0.24s ease;
   -webkit-tap-highlight-color: transparent;
+}
+
+.nav-link span {
+  position: relative;
+  z-index: 1;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -110,9 +110,7 @@
     );
     transform: translateX(-50%) scaleX(0.3);
     opacity: 0;
-    transition:
-      transform 0.24s ease,
-      opacity 0.24s ease;
+    transition: transform 0.24s ease, opacity 0.24s ease;
   }
 
   .nav-link:hover,
@@ -131,6 +129,8 @@
     opacity: 1;
   }
 }
+
+/* CTA BUTTONS */
 .nav-cta {
   display: inline-flex;
   align-items: center;
@@ -283,8 +283,17 @@ body.menu-open {
   margin: 0;
 }
 
+.custom-navbar,
+.custom-navbar * {
+  box-sizing: border-box;
+}
+
 /* <= 1199.98px */
 @media (max-width: 1199.98px) {
+  .custom-navbar {
+    overflow-x: clip;
+  }
+
   .brand-wrapper {
     gap: 0.72rem;
     max-width: 280px;
@@ -368,15 +377,16 @@ body.menu-open {
     border-radius: 999px;
     background: linear-gradient(
       90deg,
-      var(--color-primary),
-      var(--color-secondary)
+      rgba(34, 207, 232, 0) 0%,
+      rgba(34, 207, 232, 0.95) 18%,
+      rgba(23, 151, 234, 1) 50%,
+      rgba(34, 207, 232, 0.95) 82%,
+      rgba(34, 207, 232, 0) 100%
     );
     transform: scaleX(0.35);
     transform-origin: left center;
     opacity: 0;
-    transition:
-      transform 0.22s ease,
-      opacity 0.22s ease;
+    transition: transform 0.22s ease, opacity 0.22s ease;
   }
 
   .nav-link:hover,
@@ -420,17 +430,6 @@ body.menu-open {
   .nav-cta--primary {
     background: rgba(255, 255, 255, 0.56);
     border-color: rgba(23, 151, 234, 0.1);
-  }
-}
-
-.custom-navbar,
-.custom-navbar * {
-  box-sizing: border-box;
-}
-
-@media (max-width: 1199.98px) {
-  .custom-navbar {
-    overflow-x: clip;
   }
 }
 
