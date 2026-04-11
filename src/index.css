@@ -2,11 +2,16 @@
 
 :root {
   --color-primary: #1797ea;
+  --color-primary-light: #46b4f2;
   --color-secondary: #22cfe8;
   --color-accent: #1a63d4;
+
   --color-bg: #fcfbf9;
-  --color-bg-soft: #eaf8fc;
+  --color-bg-soft: #eef9fc;
+  --color-bg-soft-2: #f4fbfe;
   --color-warm: #f7f3ee;
+  --color-warm-soft: #faf6f1;
+
   --color-text: #2f2f2f;
   --color-text-soft: #6e6e6e;
   --color-border: rgba(23, 151, 234, 0.12);
@@ -15,75 +20,221 @@
   --font-heading: "Cormorant Garamond", serif;
   --font-body: "Inter", sans-serif;
 
+  --radius-xl: 34px;
   --radius-lg: 28px;
   --radius-md: 18px;
   --radius-sm: 12px;
 
   --shadow-soft: 0 12px 40px rgba(28, 66, 108, 0.08);
+  --shadow-soft-lg: 0 20px 60px rgba(28, 66, 108, 0.1);
+
   --transition-base: 0.25s ease;
+  --transition-smooth: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 
   --navbar-height: 84px;
   --viewport-offset-top: 0px;
+
+  --section-space: clamp(4.5rem, 8vw, 7.5rem);
+  --section-space-tight: clamp(3.5rem, 6vw, 5.5rem);
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--navbar-height);
+  width: 100%;
+  overflow-x: clip;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(23, 151, 234, 0.35) transparent;
 }
 
 body {
   font-family: var(--font-body);
-  background-color: var(--color-bg);
+  background: var(--color-bg);
   color: var(--color-text);
   margin: 0;
+  width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
-img {
+img,
+svg,
+video,
+canvas {
   display: block;
   max-width: 100%;
 }
 
-section {
-  scroll-margin-top: var(--navbar-height);
+button,
+input,
+textarea,
+select {
+  font: inherit;
 }
 
-/* =========================
-   HERO
-========================= */
-.hero-section {
+main {
   position: relative;
-  padding: 3rem 0 4rem;
-  overflow: hidden;
+  overflow-x: clip;
+  min-width: 0;
 }
 
-.hero-bg-shape {
+/* =========================================
+   SCROLL LOCK GLOBAL (MENÚ MÓVIL)
+========================================= */
+html.menu-open,
+body.menu-open {
+  overflow: hidden !important;
+  overscroll-behavior: none;
+  touch-action: none;
+}
+
+body.menu-open {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  margin: 0;
+}
+
+/* =========================================
+   SECCIONES GLOBALES
+========================================= */
+section {
+  position: relative;
+  scroll-margin-top: calc(var(--navbar-height) + 8px);
+  overflow: clip;
+  min-width: 0;
+}
+
+section[id] {
+  isolation: isolate;
+}
+
+/* Espaciado global uniforme para todas las secciones */
+.section-shell {
+  padding: var(--section-space) 0;
+}
+
+.section-shell--tight {
+  padding: var(--section-space-tight) 0;
+}
+
+/* =========================================
+   TRANSICIONES ENTRE SECCIONES
+========================================= */
+.section-bridge-top::before,
+.section-bridge-bottom::after {
+  content: "";
   position: absolute;
-  border-radius: 50%;
-  filter: blur(25px);
-  opacity: 0.35;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
   z-index: 0;
 }
 
-.hero-shape-1 {
-  width: 320px;
-  height: 320px;
-  background: var(--color-secondary);
-  top: 30px;
-  right: -90px;
+.section-bridge-top::before {
+  top: -1px;
+  height: clamp(40px, 6vw, 72px);
+  background: linear-gradient(
+    to bottom,
+    rgba(252, 251, 249, 0) 0%,
+    rgba(252, 251, 249, 0.65) 45%,
+    rgba(252, 251, 249, 1) 100%
+  );
 }
 
-.hero-shape-2 {
-  width: 220px;
-  height: 220px;
-  background: #c9f2f6;
-  bottom: 10px;
-  left: -70px;
+.section-bridge-bottom::after {
+  bottom: -1px;
+  height: clamp(40px, 6vw, 72px);
+  background: linear-gradient(
+    to bottom,
+    rgba(252, 251, 249, 1) 0%,
+    rgba(252, 251, 249, 0.65) 55%,
+    rgba(252, 251, 249, 0) 100%
+  );
 }
 
+/* Variantes suaves para fondos azulados */
+.section-bridge-blue-top::before,
+.section-bridge-blue-bottom::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-bridge-blue-top::before {
+  top: -1px;
+  height: clamp(44px, 6vw, 80px);
+  background: linear-gradient(
+    to bottom,
+    rgba(238, 249, 252, 0) 0%,
+    rgba(238, 249, 252, 0.6) 45%,
+    rgba(238, 249, 252, 1) 100%
+  );
+}
+
+.section-bridge-blue-bottom::after {
+  bottom: -1px;
+  height: clamp(44px, 6vw, 80px);
+  background: linear-gradient(
+    to bottom,
+    rgba(238, 249, 252, 1) 0%,
+    rgba(238, 249, 252, 0.6) 55%,
+    rgba(238, 249, 252, 0) 100%
+  );
+}
+
+/* =========================================
+   FONDOS GLOBALES REUTILIZABLES
+========================================= */
+.section-bg-cream {
+  background: linear-gradient(
+    180deg,
+    rgba(252, 251, 249, 1) 0%,
+    rgba(249, 246, 241, 0.98) 100%
+  );
+}
+
+.section-bg-soft-blue {
+  background: linear-gradient(
+    180deg,
+    rgba(244, 251, 254, 0.98) 0%,
+    rgba(234, 248, 252, 1) 100%
+  );
+}
+
+.section-bg-warm {
+  background: linear-gradient(
+    180deg,
+    rgba(250, 247, 242, 0.98) 0%,
+    rgba(247, 243, 238, 1) 100%
+  );
+}
+
+/* =========================================
+   UTILIDADES VISUALES REUTILIZABLES
+========================================= */
 .section-eyebrow {
   display: inline-block;
   font-size: 0.88rem;
@@ -93,146 +244,116 @@ section {
   letter-spacing: 0.08em;
 }
 
-.hero-title {
-  font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 4vw, 4.4rem);
-  line-height: 1.05;
-  margin: 0;
-}
-
-.hero-description {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: var(--color-text-soft);
-  max-width: 620px;
-}
-
-.hero-highlights li {
-  position: relative;
-  padding-left: 1.5rem;
-  color: var(--color-text-soft);
-  margin-bottom: 0.7rem;
-}
-
-.hero-highlights li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.65rem;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--color-primary);
-}
-
-.hero-image-card {
-  background: linear-gradient(
-    180deg,
-    rgba(234, 248, 252, 0.9),
-    rgba(247, 243, 238, 0.7)
-  );
-  border: 1px solid rgba(23, 151, 234, 0.08);
-  border-radius: var(--radius-lg);
-  padding: 1rem;
-  box-shadow: var(--shadow-soft);
-}
-
-.hero-image {
-  width: 100%;
-  height: 620px;
-  object-fit: cover;
-  border-radius: calc(var(--radius-lg) - 8px);
-}
-
-/* =========================
-   PLACEHOLDERS / GENÉRICOS
-========================= */
-.section-placeholder {
-  padding: 5rem 0;
-}
-
-.section-soft {
-  background-color: var(--color-bg-soft);
-}
-
 .section-title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 3vw, 3rem);
-  margin-bottom: 1rem;
+  font-size: clamp(2rem, 3vw, 3.2rem);
+  line-height: 1.08;
+  margin: 0 0 1rem;
 }
 
 .section-text {
   max-width: 760px;
   color: var(--color-text-soft);
   line-height: 1.8;
+  margin-bottom: 0;
 }
 
-/* =========================
-   FOOTER BASE LEGACY
-   (si alguna sección aún lo usa)
-========================= */
-.site-footer {
-  background-color: var(--color-warm);
-  padding: 4.5rem 0 2rem;
-  border-top: 1px solid rgba(23, 151, 234, 0.08);
+.surface-card {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(23, 151, 234, 0.08);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-.footer-brand {
-  margin-bottom: 0.5rem;
+.soft-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(23, 151, 234, 0) 0%,
+    rgba(23, 151, 234, 0.12) 20%,
+    rgba(23, 151, 234, 0.12) 80%,
+    rgba(23, 151, 234, 0) 100%
+  );
 }
 
-.footer-heading {
-  font-family: var(--font-heading);
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
+/* =========================================
+   SELECCIÓN / SCROLLBAR
+========================================= */
+::selection {
+  background: rgba(23, 151, 234, 0.16);
+  color: var(--color-text);
 }
 
-.footer-text,
-.footer-list li,
-.footer-list a,
-.footer-bottom p {
-  color: var(--color-text-soft);
-  line-height: 1.8;
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-.footer-list a:hover {
-  color: var(--color-primary);
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.footer-bottom {
-  border-top: 1px solid rgba(23, 151, 234, 0.1);
+::-webkit-scrollbar-thumb {
+  background: rgba(23, 151, 234, 0.22);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
 }
 
-/* =========================
-   TABLET Y MÓVIL
-========================= */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(23, 151, 234, 0.35);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 1199.98px) {
+  :root {
+    --navbar-height: 84px;
+    --section-space: clamp(4rem, 7vw, 6.5rem);
+    --section-space-tight: clamp(3rem, 5vw, 4.75rem);
+  }
+}
+
 @media (max-width: 991.98px) {
-  .hero-section {
-    padding: 2.2rem 0 3rem;
+  :root {
+    --section-space: clamp(3.4rem, 8vw, 5rem);
+    --section-space-tight: clamp(2.8rem, 6vw, 4rem);
   }
 
-  .hero-image {
-    height: 460px;
+  .section-title {
+    font-size: clamp(1.9rem, 6vw, 2.8rem);
+  }
+
+  .section-text {
+    line-height: 1.75;
   }
 }
 
-/* =========================
-   MÓVIL PEQUEÑO
-========================= */
 @media (max-width: 575.98px) {
   :root {
     --navbar-height: 80px;
+    --section-space: clamp(3rem, 9vw, 4.2rem);
+    --section-space-tight: clamp(2.4rem, 7vw, 3.3rem);
   }
 
-  .hero-section {
-    padding: 1.15rem 0 2.4rem;
+  html,
+  body,
+  #root,
+  main {
+    overflow-x: clip;
   }
 
-  .hero-description {
-    font-size: 1rem;
+  .section-title {
+    font-size: clamp(1.8rem, 8vw, 2.35rem);
   }
 
-  .hero-image {
-    height: 380px;
+  .section-eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 0.07em;
   }
 }
