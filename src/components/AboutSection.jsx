@@ -44,7 +44,7 @@ function AboutSection() {
           trigger: sectionRef.current,
           start: "top 85%",
           end: "bottom 15%",
-          scrub: 1.4,
+          scrub: 1.35,
         },
       })
         .to(bottomWaveRef.current, {
@@ -72,8 +72,7 @@ function AboutSection() {
 
   return (
     <section className="about-wave-section" id="about" ref={sectionRef}>
-      {/* OLA SUPERIOR ÚNICA */}
-      <div className="about-wave about-wave-top">
+      <div className="about-wave about-wave-top" aria-hidden="true">
         <svg viewBox="0 0 1440 220" preserveAspectRatio="none">
           <path
             ref={topWaveRef}
@@ -87,7 +86,20 @@ function AboutSection() {
         <div className="about-wave-inner">
           <span className="about-wave-kicker">Sobre mí</span>
 
-          <h2 className="about-wave-title">Conoce más acerca de mí</h2>
+          <div className="about-wave-heading-block">
+            <span className="about-wave-accent">
+              <span className="about-wave-accent-line"></span>
+              <img
+                src="/mariposa-navbar@2x.png"
+                alt=""
+                aria-hidden="true"
+                className="about-wave-accent-butterfly"
+              />
+              <span className="about-wave-accent-line"></span>
+            </span>
+
+            <h2 className="about-wave-title">Conoce más acerca de mí</h2>
+          </div>
 
           <p className="about-wave-text">
             Soy psicóloga y tanatóloga, y acompaño a personas en procesos de
@@ -98,8 +110,7 @@ function AboutSection() {
         </div>
       </div>
 
-      {/* OLA INFERIOR ÚNICA */}
-      <div className="about-wave about-wave-bottom">
+      <div className="about-wave about-wave-bottom" aria-hidden="true">
         <svg viewBox="0 0 1440 220" preserveAspectRatio="none">
           <path
             ref={bottomWaveRef}

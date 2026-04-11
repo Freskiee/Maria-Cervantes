@@ -1,8 +1,14 @@
 .about-wave-section {
   position: relative;
   overflow: hidden;
-  background-color: var(--color-bg);
-  padding: 9rem 0 8.5rem;
+  background: linear-gradient(
+    180deg,
+    rgba(249, 246, 241, 0.98) 0%,
+    rgba(252, 251, 249, 1) 24%,
+    rgba(252, 251, 249, 1) 76%,
+    rgba(244, 251, 254, 0.9) 100%
+  );
+  padding: 8.8rem 0 8.4rem;
 }
 
 .about-wave-content {
@@ -11,18 +17,19 @@
 }
 
 .about-wave-inner {
-  max-width: 860px;
+  max-width: 900px;
   margin: 0 auto;
   text-align: center;
+  padding-inline: 0.75rem;
 }
 
 .about-wave-kicker {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.3rem;
+  margin-bottom: 1.15rem;
   padding: 0.5rem 1rem;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -32,22 +39,60 @@
   border-radius: 999px;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 8px 24px rgba(28, 66, 108, 0.03);
+}
+
+.about-wave-heading-block {
+  margin-bottom: 1.75rem;
+}
+
+.about-wave-accent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  margin: 0 auto 1.1rem;
+  width: fit-content;
+}
+
+.about-wave-accent-line {
+  display: block;
+  width: clamp(62px, 8vw, 110px);
+  height: 1px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(23, 151, 234, 0) 0%,
+    rgba(23, 151, 234, 0.16) 18%,
+    rgba(34, 207, 232, 0.48) 50%,
+    rgba(23, 151, 234, 0.16) 82%,
+    rgba(23, 151, 234, 0) 100%
+  );
+}
+
+.about-wave-accent-butterfly {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  opacity: 0.72;
+  filter: drop-shadow(0 2px 6px rgba(23, 151, 234, 0.08));
+  flex-shrink: 0;
 }
 
 .about-wave-title {
-  margin: 0 0 1.65rem;
+  margin: 0;
   font-family: var(--font-heading);
-  font-size: clamp(3rem, 5vw, 5.2rem);
-  line-height: 1.02;
+  font-size: clamp(2.55rem, 4.3vw, 4.35rem);
+  line-height: 1.04;
   color: #1b4f4b;
   letter-spacing: -0.02em;
 }
 
 .about-wave-text {
-  max-width: 780px;
+  max-width: 830px;
   margin: 0 auto;
-  font-size: 1.2rem;
-  line-height: 1.95;
+  font-size: 1.08rem;
+  line-height: 1.92;
   color: var(--color-text-soft);
 }
 
@@ -62,7 +107,7 @@
 .about-wave svg {
   display: block;
   width: 100%;
-  height: 220px;
+  height: 185px;
 }
 
 .about-wave-top {
@@ -76,7 +121,7 @@
 /* TABLET */
 @media (max-width: 991.98px) {
   .about-wave-section {
-    padding: 7rem 0 6.5rem;
+    padding: 7.2rem 0 6.8rem;
   }
 
   .about-wave-inner {
@@ -84,56 +129,95 @@
   }
 
   .about-wave-kicker {
-    margin-bottom: 1.05rem;
-    font-size: 0.78rem;
+    margin-bottom: 1rem;
+    font-size: 0.76rem;
     padding: 0.45rem 0.9rem;
   }
 
+  .about-wave-heading-block {
+    margin-bottom: 1.4rem;
+  }
+
+  .about-wave-accent {
+    gap: 0.72rem;
+    margin-bottom: 0.95rem;
+  }
+
+  .about-wave-accent-line {
+    width: clamp(50px, 12vw, 88px);
+  }
+
+  .about-wave-accent-butterfly {
+    width: 16px;
+    height: 16px;
+  }
+
   .about-wave-title {
-    font-size: clamp(2.5rem, 7vw, 4rem);
-    margin-bottom: 1.25rem;
+    font-size: clamp(2.2rem, 6vw, 3.5rem);
+    line-height: 1.05;
   }
 
   .about-wave-text {
-    font-size: 1.03rem;
-    line-height: 1.85;
-    max-width: 690px;
+    font-size: 1.01rem;
+    line-height: 1.82;
+    max-width: 680px;
   }
 
   .about-wave svg {
-    height: 180px;
+    height: 155px;
   }
 }
 
 /* MÓVIL */
 @media (max-width: 575.98px) {
   .about-wave-section {
-    padding: 5.8rem 0 5.5rem;
+    padding: 6rem 0 5.7rem;
   }
 
   .about-wave-inner {
     text-align: left;
+    max-width: 100%;
+    padding-inline: 0.35rem;
   }
 
   .about-wave-kicker {
-    margin-bottom: 0.95rem;
-    font-size: 0.74rem;
-    padding: 0.42rem 0.8rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.72rem;
+    padding: 0.4rem 0.78rem;
+  }
+
+  .about-wave-heading-block {
+    margin-bottom: 1rem;
+  }
+
+  .about-wave-accent {
+    justify-content: flex-start;
+    gap: 0.6rem;
+    margin: 0 0 0.9rem;
+  }
+
+  .about-wave-accent-line {
+    width: 54px;
+  }
+
+  .about-wave-accent-butterfly {
+    width: 15px;
+    height: 15px;
   }
 
   .about-wave-title {
-    font-size: 2.45rem;
-    line-height: 1.06;
-    margin-bottom: 1rem;
+    font-size: 2.1rem;
+    line-height: 1.07;
   }
 
   .about-wave-text {
     font-size: 0.98rem;
-    line-height: 1.82;
+    line-height: 1.8;
     margin: 0;
+    max-width: 100%;
   }
 
   .about-wave svg {
-    height: 145px;
+    height: 120px;
   }
 }
