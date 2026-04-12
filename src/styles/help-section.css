@@ -1,158 +1,322 @@
-.help-minimal-section {
-  padding: 5.2rem 0 4.8rem;
-  background: var(--color-bg);
+.therapy-help-section {
+  position: relative;
+  padding: 5.6rem 0 5.8rem;
+  background: linear-gradient(
+    180deg,
+    rgba(252, 251, 249, 1) 0%,
+    rgba(250, 247, 242, 0.98) 100%
+  );
 }
 
-.help-minimal__header {
+.therapy-help__content {
+  position: relative;
+}
+
+.therapy-help__header {
   max-width: 760px;
-  margin: 0 auto 2.4rem;
-  text-align: center;
+  margin: 0 0 2.2rem auto;
+  text-align: right;
 }
 
-.help-minimal__eyebrow {
-  display: inline-block;
-  margin-bottom: 0.75rem;
+.therapy-help__pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.78rem;
+  padding: 0.5rem 1rem;
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-primary);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(47, 134, 246, 0.1);
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 8px 24px rgba(28, 66, 108, 0.03);
+  cursor: default;
+  user-select: none;
 }
 
-.help-minimal__title {
+.therapy-help__ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.72rem;
+  width: fit-content;
+  margin: 0 0 1rem auto;
+  user-select: none;
+  cursor: default;
+}
+
+.therapy-help__ornament-line {
+  display: block;
+  width: clamp(62px, 8vw, 112px);
+  height: 1px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(23, 151, 234, 0) 0%,
+    rgba(23, 151, 234, 0.16) 18%,
+    rgba(34, 207, 232, 0.5) 50%,
+    rgba(23, 151, 234, 0.16) 82%,
+    rgba(23, 151, 234, 0) 100%
+  );
+}
+
+.therapy-help__ornament-butterfly {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  opacity: 1;
+  flex-shrink: 0;
+  filter: none;
+}
+
+.therapy-help__title {
   margin: 0 0 0.9rem;
   font-family: var(--font-heading);
-  font-size: clamp(2.1rem, 4vw, 3.5rem);
-  line-height: 1.05;
-  color: #554b46;
+  font-size: clamp(2.35rem, 4.6vw, 4.1rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: #4f4a44;
+  cursor: default;
+  user-select: none;
+  text-wrap: balance;
 }
 
-.help-minimal__description {
-  max-width: 640px;
-  margin: 0 auto;
-  font-size: 0.98rem;
-  line-height: 1.72;
+.therapy-help__description {
+  margin: 0 0 0 auto;
+  max-width: 700px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.8;
   color: var(--color-text-soft);
+  cursor: default;
+  user-select: none;
+  text-wrap: pretty;
 }
 
-.help-minimal__grid {
+/* GRID */
+.therapy-help__grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 1.15rem;
   align-items: stretch;
 }
 
-.help-mini-card {
-  border-radius: 18px;
-  padding: 1.15rem 0.95rem 1rem;
-  text-align: center;
-  border: 1px solid rgba(47, 134, 246, 0.06);
-  box-shadow: 0 10px 24px rgba(28, 66, 108, 0.035);
-  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-  min-height: 100%;
-}
-
-.help-mini-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 28px rgba(28, 66, 108, 0.06);
-  border-color: rgba(47, 134, 246, 0.12);
-}
-
-.help-mini-card.soft-pink {
-  background: linear-gradient(180deg, #fbf1ef 0%, #fff8f6 100%);
-}
-
-.help-mini-card.soft-sand {
-  background: linear-gradient(180deg, #f4efe7 0%, #fcfaf6 100%);
-}
-
-.help-mini-card.soft-gray {
-  background: linear-gradient(180deg, #f1f2ef 0%, #fafbf9 100%);
-}
-
-.help-mini-card__icon-wrap {
+/* CARDS */
+.therapy-help-card {
+  position: relative;
+  min-height: 230px;
+  border-radius: 22px;
+  padding: 1.25rem 1.05rem 1rem;
+  border: 1px solid rgba(47, 134, 246, 0.05);
   display: flex;
-  justify-content: center;
-  margin-bottom: 0.8rem;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition:
+    transform 0.24s ease,
+    box-shadow 0.24s ease,
+    border-color 0.24s ease;
+  box-shadow: 0 10px 26px rgba(28, 66, 108, 0.035);
+  user-select: none;
+  cursor: default;
 }
 
-.help-mini-card__icon {
-  width: 16px;
-  height: 16px;
-  border-radius: 60% 40% 50% 50%;
+.therapy-help-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(28, 66, 108, 0.06);
+  border-color: rgba(47, 134, 246, 0.1);
+}
+
+.therapy-help-card--rose {
   background: linear-gradient(
-    135deg,
-    rgba(119, 215, 230, 0.95),
-    rgba(47, 134, 246, 0.78)
+    180deg,
+    rgba(251, 239, 236, 0.82) 0%,
+    rgba(248, 238, 235, 0.92) 100%
   );
-  transform: rotate(-18deg);
-  box-shadow: 0 3px 10px rgba(47, 134, 246, 0.12);
 }
 
-.help-mini-card__title {
-  margin: 0 0 0.45rem;
-  font-size: 0.98rem;
+.therapy-help-card--sand {
+  background: linear-gradient(
+    180deg,
+    rgba(243, 241, 233, 0.84) 0%,
+    rgba(240, 237, 229, 0.94) 100%
+  );
+}
+
+.therapy-help-card--mist {
+  background: linear-gradient(
+    180deg,
+    rgba(241, 241, 238, 0.9) 0%,
+    rgba(236, 236, 232, 0.96) 100%
+  );
+}
+
+.therapy-help-card__icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+  background: rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(79, 74, 68, 0.06);
+}
+
+.therapy-help-card__icon-wrap i {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.therapy-help-card__title {
+  margin: 0 0 0.7rem;
+  font-family: var(--font-body);
+  font-size: 1.02rem;
   font-weight: 600;
   line-height: 1.28;
-  color: #5c534d;
-  min-height: 2.5em;
+  color: #5a5149;
+  max-width: 180px;
+  cursor: default;
 }
 
-.help-mini-card__text {
-  margin: 0;
-  font-size: 0.76rem;
-  line-height: 1.45;
-  color: #8d837d;
+.therapy-help-card__text {
+  margin: 0 0 0.95rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.58;
+  color: #7a746d;
+  max-width: 210px;
+  cursor: default;
+}
+
+.therapy-help-card__label {
+  margin-top: auto;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #8a8179;
+  padding-top: 0.7rem;
+  position: relative;
+  cursor: default;
+}
+
+.therapy-help-card__label::before {
+  content: "";
+  display: block;
+  width: 42px;
+  height: 1px;
+  margin: 0 auto 0.7rem;
+  background: rgba(90, 81, 73, 0.16);
 }
 
 /* TABLET */
 @media (max-width: 991.98px) {
-  .help-minimal-section {
-    padding: 4.6rem 0 4.2rem;
+  .therapy-help-section {
+    padding: 4.8rem 0 5rem;
   }
 
-  .help-minimal__grid {
+  .therapy-help__header {
+    max-width: 760px;
+    margin-bottom: 1.9rem;
+  }
+
+  .therapy-help__title {
+    font-size: clamp(2.1rem, 6vw, 3.4rem);
+  }
+
+  .therapy-help__description {
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+
+  .therapy-help__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .therapy-help-card {
+    min-height: 220px;
   }
 }
 
 /* MÓVIL */
 @media (max-width: 575.98px) {
-  .help-minimal-section {
-    padding: 4rem 0 3.8rem;
+  .therapy-help-section {
+    padding: 4.1rem 0 4.4rem;
   }
 
-  .help-minimal__header {
+  .therapy-help__header {
+    max-width: 100%;
+    margin: 0 0 1.55rem;
     text-align: left;
-    margin-bottom: 1.8rem;
   }
 
-  .help-minimal__title {
+  .therapy-help__pill {
+    font-size: 0.74rem;
+    margin-bottom: 0.72rem;
+    padding: 0.42rem 0.82rem;
+  }
+
+  .therapy-help__ornament {
+    justify-content: flex-start;
+    gap: 0.55rem;
+    margin: 0 0 0.82rem;
+  }
+
+  .therapy-help__ornament-line {
+    width: 46px;
+  }
+
+  .therapy-help__ornament-butterfly {
+    width: 14px;
+    height: 14px;
+  }
+
+  .therapy-help__title {
     font-size: 2rem;
-    line-height: 1.08;
+    line-height: 1.06;
   }
 
-  .help-minimal__description {
-    margin: 0;
+  .therapy-help__description {
     font-size: 0.95rem;
     line-height: 1.7;
+    max-width: 100%;
+    margin: 0;
   }
 
-  .help-minimal__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.85rem;
+  .therapy-help__grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
   }
 
-  .help-mini-card {
-    padding: 1rem 0.8rem 0.9rem;
-    border-radius: 16px;
+  .therapy-help-card {
+    min-height: auto;
+    padding: 1.15rem 1rem 1rem;
+    border-radius: 20px;
   }
 
-  .help-mini-card__title {
+  .therapy-help-card__icon-wrap {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.85rem;
+  }
+
+  .therapy-help-card__title {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .therapy-help-card__text {
     font-size: 0.9rem;
-  }
-
-  .help-mini-card__text {
-    font-size: 0.72rem;
+    max-width: 100%;
   }
 }

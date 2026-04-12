@@ -60,6 +60,9 @@ function Footer() {
               <a href="#about" onClick={(e) => handleScroll(e, "#about")}>
                 Sobre mí
               </a>
+              <a href="#help" onClick={(e) => handleScroll(e, "#help")}>
+                Acompañamiento
+              </a>
               <a
                 href="#therapy-services"
                 onClick={(e) => handleScroll(e, "#therapy-services")}

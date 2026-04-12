@@ -260,6 +260,16 @@ function Navbar() {
 
                         <li className="nav-item">
                             <a
+                                className={`nav-link ${activeMobileLink === "#help" ? "is-active-mobile" : ""}`}
+                                href="#help"
+                                onClick={(e) => handleSectionClick(e, "#help")}
+                            >
+                                <span>Acompañamiento</span>
+                            </a>
+                        </li>
+
+                        <li className="nav-item">
+                            <a
                                 className={`nav-link ${activeMobileLink === "#therapy-services" ? "is-active-mobile" : ""
                                     }`}
                                 href="#therapy-services"
