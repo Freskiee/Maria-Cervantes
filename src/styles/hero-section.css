@@ -129,8 +129,8 @@
 }
 
 .hero-description {
-  font-size: 1rem;
-  line-height: 1.84;
+  font-size: 1.1rem;
+  line-height: 1.75;
   color: var(--color-text-soft);
   max-width: 580px;
   margin-bottom: 0;
@@ -223,16 +223,16 @@
   gap: 0.68rem;
   align-items: start;
   color: var(--color-text-soft);
-  font-size: 0.97rem;
+  font-size: 1rem;
   line-height: 1.62;
   margin: 0;
 }
 
 .hero-highlights__butterfly {
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
   object-fit: contain;
-  margin-top: 0.16rem;
+  margin-top: 0.30rem;
 }
 
 /* VISUAL */

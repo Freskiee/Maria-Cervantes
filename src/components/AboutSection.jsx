@@ -12,14 +12,15 @@ function AboutSection() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 85%",
-          end: "bottom 15%",
-          scrub: 1.2,
-        },
-      })
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 85%",
+            end: "bottom 15%",
+            scrub: 1.2,
+          },
+        })
         .to(topWaveRef.current, {
           attr: {
             d: "M0,150 C140,235 320,20 620,95 C880,155 1120,195 1440,70 L1440,0 L0,0 Z",
@@ -39,14 +40,15 @@ function AboutSection() {
           ease: "none",
         });
 
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 85%",
-          end: "bottom 15%",
-          scrub: 1.35,
-        },
-      })
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 85%",
+            end: "bottom 15%",
+            scrub: 1.35,
+          },
+        })
         .to(bottomWaveRef.current, {
           attr: {
             d: "M0,105 C220,25 390,220 690,145 C980,75 1160,55 1440,135 L1440,220 L0,220 Z",
@@ -87,26 +89,31 @@ function AboutSection() {
           <span className="about-wave-kicker">Sobre mí</span>
 
           <div className="about-wave-heading-block">
-            <span className="about-wave-accent">
+            <span className="about-wave-accent" aria-hidden="true">
               <span className="about-wave-accent-line"></span>
               <img
                 src="/mariposa-navbar@2x.png"
                 alt=""
-                aria-hidden="true"
                 className="about-wave-accent-butterfly"
               />
               <span className="about-wave-accent-line"></span>
             </span>
 
-            <h2 className="about-wave-title">Conoce más acerca de mí</h2>
+            <h2 className="about-wave-title">CONOCE MÁS ACERCA DE MÍ</h2>
           </div>
 
-          <p className="about-wave-text">
-            Soy psicóloga y tanatóloga, y acompaño a personas en procesos de
-            duelo, pérdida, crisis emocionales y transición vital. Mi propósito
-            es brindarte un espacio seguro, profesional y humano donde puedas
-            comprender lo que estás viviendo con claridad y contención.
-          </p>
+          <div className="about-wave-text">
+            <span className="about-wave-paragraph">
+              Soy psicóloga y tanatóloga, especializada en el acompañamiento
+              terapéutico de procesos de duelo, pérdidas y crisis emocionales.
+            </span>
+
+            <span className="about-wave-paragraph">
+              Desde la intervención psicológica y el enfoque tanatológico,
+              ofrezco un espacio seguro y humano para acompañarte en lo que estás
+              atravesando, brindando contención y orientación profesional.
+            </span>
+          </div>
         </div>
       </div>
 

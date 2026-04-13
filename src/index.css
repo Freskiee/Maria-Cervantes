@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Marcellus&display=swap");
 
 :root {
   --color-primary: #1797ea;
@@ -18,7 +18,7 @@
   --color-white: #ffffff;
 
   --font-heading: "Cormorant Garamond", serif;
-  --font-body: "Inter", sans-serif;
+  --font-body: "Marcellus", sans-serif;
 
   --radius-xl: 34px;
   --radius-lg: 28px;
