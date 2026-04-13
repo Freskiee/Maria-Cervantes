@@ -1,33 +1,36 @@
 import "../styles/help-section.css";
+import helpTherapyImage from "../assets/img/help-therapy-illustration.jpg";
 
 const helpItems = [
   {
-    title: "Duelo por fallecimiento",
-    text: "Acompañamiento sensible para transitar pérdidas significativas con contención y claridad.",
-    label: "Acompañamiento emocional",
+    title: "Duelo por fallecimiento de un ser querido",
     icon: "bi-heartbreak",
     tone: "rose",
   },
   {
-    title: "Rupturas y pérdidas afectivas",
-    text: "Un espacio para procesar separaciones, despedidas y vínculos que han cambiado o terminado.",
-    label: "Duelo relacional",
-    icon: "bi-arrow-through-heart",
-    tone: "sand",
-  },
-  {
-    title: "Ansiedad por pérdida",
-    text: "Escucha profesional para comprender el miedo, la incertidumbre y el desborde emocional.",
-    label: "Proceso terapéutico",
-    icon: "bi-clipboard2-pulse",
+    title: "Enfermedad grave o terminal (propia o de un familiar)",
+    icon: "bi-hospital",
     tone: "mist",
   },
   {
-    title: "Procesos de cambio de vida",
-    text: "Acompañamiento en transiciones personales, cierres de ciclo y nuevas etapas vitales.",
-    label: "Acompañamiento",
-    icon: "bi-flower1",
+    title: "Duelo por suicidio o muerte repentina",
+    icon: "bi-cloud-lightning-rain",
+    tone: "sand",
+  },
+  {
+    title: "Ruptura o término de relación amorosa",
+    icon: "bi-arrow-through-heart",
     tone: "rose",
+  },
+  {
+    title: "Jubilación o despido laboral",
+    icon: "bi-briefcase",
+    tone: "sand",
+  },
+  {
+    title: "Migración o cambio de país",
+    icon: "bi-globe-americas",
+    tone: "mist",
   },
 ];
 
@@ -36,7 +39,7 @@ function HelpSection() {
     <section className="therapy-help-section" id="help">
       <div className="container therapy-help__content">
         <div className="therapy-help__header">
-          <span className="therapy-help__pill">Acompañamiento terapéutico</span>
+          <span className="therapy-help__kicker">Acompañamiento terapéutico</span>
 
           <span className="therapy-help__ornament" aria-hidden="true">
             <span className="therapy-help__ornament-line"></span>
@@ -47,14 +50,39 @@ function HelpSection() {
             />
             <span className="therapy-help__ornament-line"></span>
           </span>
+        </div>
 
-          <h2 className="therapy-help__title">¿Cómo puedo ayudarte?</h2>
+        <div className="therapy-help__intro-layout">
+          <div className="therapy-help__visual">
+            <div className="therapy-help__image-frame">
+              <div className="therapy-help__image-card">
+                <img
+                  src={helpTherapyImage}
+                  alt="Espacio de acompañamiento terapéutico"
+                  className="therapy-help__image"
+                />
+              </div>
+            </div>
+          </div>
 
-          <p className="therapy-help__description">
-            Cada proceso emocional es distinto. Aquí encontrarás un espacio
-            profesional y humano para acompañarte en distintos momentos de
-            duelo, pérdida, ansiedad y transformación personal.
-          </p>
+          <div className="therapy-help__summary">
+            <div className="therapy-help__summary-card">
+              <h2 className="therapy-help__title">¿EN QUÉ TE PUEDO AYUDAR?</h2>
+
+              <p className="therapy-help__description">
+                Desde el acompañamiento tanatológico, te brindo apoyo en procesos de
+                duelo y pérdida, ayudándote a transitar y resignificar experiencias
+                de cambio y dolor emocional.
+              </p>
+
+              <p className="therapy-help__summary-text">
+                Cada experiencia de duelo es distinta. El acompañamiento busca
+                ofrecerte un espacio humano, seguro y profesional donde puedas
+                expresar lo que estás viviendo, resignificar tu proceso y encontrar
+                contención emocional.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="therapy-help__grid">
@@ -68,10 +96,6 @@ function HelpSection() {
               </div>
 
               <h3 className="therapy-help-card__title">{item.title}</h3>
-
-              <p className="therapy-help-card__text">{item.text}</p>
-
-              <span className="therapy-help-card__label">{item.label}</span>
             </article>
           ))}
         </div>

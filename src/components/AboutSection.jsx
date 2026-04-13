@@ -86,9 +86,10 @@ function AboutSection() {
 
       <div className="container about-wave-content">
         <div className="about-wave-inner">
-          <span className="about-wave-kicker">Sobre mí</span>
+          <span className="about-wave-kicker">¿Quién soy?</span>
 
           <div className="about-wave-heading-block">
+            
             <span className="about-wave-accent" aria-hidden="true">
               <span className="about-wave-accent-line"></span>
               <img
@@ -99,19 +100,16 @@ function AboutSection() {
               <span className="about-wave-accent-line"></span>
             </span>
 
-            <h2 className="about-wave-title">CONOCE MÁS ACERCA DE MÍ</h2>
+            <h2 className="about-wave-title">SOBRE MÍ</h2>
           </div>
 
           <div className="about-wave-text">
             <span className="about-wave-paragraph">
-              Soy psicóloga y tanatóloga, especializada en el acompañamiento
-              terapéutico de procesos de duelo, pérdidas y crisis emocionales.
+              Soy María Cervantes Forastieri, licenciada en Psicología por la Universidad Latinoamericana, con certificación en Tanatología con Gaby Pérez Islas y un diplomado en Tanatología por la Universidad Nacional Autónoma de México (UNAM)
             </span>
 
             <span className="about-wave-paragraph">
-              Desde la intervención psicológica y el enfoque tanatológico,
-              ofrezco un espacio seguro y humano para acompañarte en lo que estás
-              atravesando, brindando contención y orientación profesional.
+              Me especializo en el acompañamiento terapéutico de procesos de duelo, pérdidas y crisis emocionales. Desde la intervención psicológica y el enfoque tanatológico, ofrezco un espacio seguro y humano para acompañarte en lo que estás atravesando, brindando contención y orientación profesional.
             </span>
           </div>
         </div>
