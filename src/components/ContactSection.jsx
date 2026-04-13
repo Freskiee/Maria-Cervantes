@@ -56,7 +56,7 @@ function ContactSection() {
                 <div>
                   <span className="contact-modern-card__label">Atención</span>
                   <span className="contact-modern-card__value">
-                    Presencial y online
+                    Presencial y Online
                   </span>
                 </div>
               </div>
@@ -68,7 +68,7 @@ function ContactSection() {
                     Consultorio
                   </span>
                   <span className="contact-modern-card__value">
-                    Comunal #58, Acacias, Del. Benito Juárez, CDMX
+                    Zona Sur, CDMX
                   </span>
                 </div>
               </div>

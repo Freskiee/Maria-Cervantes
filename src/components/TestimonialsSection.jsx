@@ -1,6 +1,85 @@
+import { useState } from "react";
 import "../styles/testimonials-section.css";
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xlgaegaw";
+
 function TestimonialsSection() {
+  const [formData, setFormData] = useState({
+    nombre: "",
+    testimonio: "",
+    anonimo: false,
+  });
+
+  const [status, setStatus] = useState({
+    sending: false,
+    success: false,
+    error: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setStatus({
+      sending: true,
+      success: false,
+      error: "",
+    });
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          nombre: formData.nombre,
+          testimonio: formData.testimonio,
+          anonimo: formData.anonimo ? "Sí" : "No",
+          _subject: "Nuevo testimonio desde la página web",
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          result?.errors?.[0]?.message ||
+          "No se pudo enviar el testimonio. Intenta nuevamente."
+        );
+      }
+
+      setStatus({
+        sending: false,
+        success: true,
+        error: "",
+      });
+
+      setFormData({
+        nombre: "",
+        testimonio: "",
+        anonimo: false,
+      });
+    } catch (error) {
+      setStatus({
+        sending: false,
+        success: false,
+        error:
+          error.message ||
+          "Ocurrió un problema al enviar tu testimonio. Intenta de nuevo.",
+      });
+    }
+  };
+
   return (
     <section className="testimonials-section" id="testimonials">
       <div className="testimonials-section__bg"></div>
@@ -36,60 +115,107 @@ function TestimonialsSection() {
           </div>
 
           <div className="testimonials-section__form-wrap">
-            <form
-              action="https://formspree.io/f/xlgaegaw"
-              method="POST"
-              className="testimonials-form"
-            >
-              <div className="testimonials-form__intro">
-                <h3 className="testimonials-form__title">
-                  Comparte tu experiencia
+            {status.success ? (
+              <div className="testimonials-success" role="status" aria-live="polite">
+                <div className="testimonials-success__icon">
+                  <i className="bi bi-envelope-check"></i>
+                </div>
+
+                <h3 className="testimonials-success__title">
+                  Gracias por compartir tu experiencia
                 </h3>
-                <p className="testimonials-form__text">
-                  Puedes dejar tu testimonio de forma anónima si así lo
-                  prefieres.
+
+                <p className="testimonials-success__text">
+                  Tu testimonio ha sido enviado correctamente. Será recibido con
+                  respeto, sensibilidad y confidencialidad.
                 </p>
+
+                <button
+                  type="button"
+                  className="testimonials-success__button"
+                  onClick={() =>
+                    setStatus({ sending: false, success: false, error: "" })
+                  }
+                >
+                  Enviar otro testimonio
+                </button>
               </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="testimonials-form">
+                <div className="testimonials-form__intro">
+                  <h3 className="testimonials-form__title">
+                    Comparte tu experiencia
+                  </h3>
+                  <p className="testimonials-form__text">
+                    Puedes dejar tu testimonio de forma anónima si así lo
+                    prefieres.
+                  </p>
+                </div>
 
-              <div className="testimonials-form__field">
-                <label htmlFor="testimonial-name">Nombre (opcional)</label>
-                <input
-                  type="text"
-                  id="testimonial-name"
-                  name="nombre"
-                  placeholder="Puedes dejarlo en blanco"
-                />
-              </div>
+                <div className="testimonials-form__field">
+                  <label htmlFor="testimonial-name">Nombre (opcional)</label>
+                  <input
+                    type="text"
+                    id="testimonial-name"
+                    name="nombre"
+                    value={formData.nombre}
+                    onChange={handleChange}
+                    placeholder="Puedes dejarlo en blanco"
+                    disabled={status.sending}
+                  />
+                </div>
 
-              <div className="testimonials-form__field">
-                <label htmlFor="testimonial-message">Tu testimonio</label>
-                <textarea
-                  id="testimonial-message"
-                  name="testimonio"
-                  rows="6"
-                  placeholder="Escribe aquí tu experiencia..."
-                  required
-                ></textarea>
-              </div>
+                <div className="testimonials-form__field">
+                  <label htmlFor="testimonial-message">Tu testimonio</label>
+                  <textarea
+                    id="testimonial-message"
+                    name="testimonio"
+                    rows="6"
+                    value={formData.testimonio}
+                    onChange={handleChange}
+                    placeholder="Escribe aquí tu experiencia..."
+                    required
+                    disabled={status.sending}
+                  ></textarea>
+                </div>
 
-              <div className="testimonials-form__checks">
-                <label className="testimonials-form__check">
-                  <input type="checkbox" name="anonimo" value="Sí" />
-                  <span>Prefiero que se comparta como anónimo</span>
-                </label>
-              </div>
+                <div className="testimonials-form__checks">
+                  <label className="testimonials-form__check">
+                    <input
+                      type="checkbox"
+                      name="anonimo"
+                      checked={formData.anonimo}
+                      onChange={handleChange}
+                      disabled={status.sending}
+                    />
+                    <span className="testimonials-form__check-box" aria-hidden="true"></span>
+                    <span>Prefiero compartirlo de forma anónima</span>
+                  </label>
+                </div>
 
-              <input
-                type="hidden"
-                name="_subject"
-                value="Nuevo testimonio desde la página web"
-              />
+                {status.error ? (
+                  <p className="testimonials-form__error" role="alert">
+                    {status.error}
+                  </p>
+                ) : null}
 
-              <button type="submit" className="testimonials-form__submit">
-                <i className="bi bi-envelope-paper"></i>
-                <span>Dar mi testimonio anónimo</span>
-              </button>
-            </form>
+                <button
+                  type="submit"
+                  className="testimonials-form__submit"
+                  disabled={status.sending}
+                >
+                  <i
+                    className={`bi ${status.sending ? "bi-hourglass-split" : "bi-envelope-paper"
+                      }`}
+                  ></i>
+                  <span>
+                    {status.sending
+                      ? "Enviando..."
+                      : "Compartir mi testimonio"}
+                  </span>
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>
