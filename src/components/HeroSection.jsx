@@ -112,7 +112,7 @@ function HeroSection() {
                   </div>
 
                   <p className="hero-photo-signature">
-                    <span>Lic.</span> María Cervantes Forastieri
+                    María Cervantes Forastieri
                   </p>
                 </div>
               </div>

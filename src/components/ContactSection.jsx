@@ -1,9 +1,103 @@
+import { useState } from "react";
 import "../styles/contact-section.css";
+
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mjgjvygb";
+
+const consultationReasons = [
+  "Duelo por fallecimiento de un ser querido",
+  "Enfermedad grave o terminal (propia o de un familiar)",
+  "Duelo por suicidio o muerte repentina",
+  "Ruptura o término de relación amorosa",
+  "Jubilación o despido laboral",
+  "Migración o cambio de país",
+];
 
 function ContactSection() {
   const whatsappMessage = encodeURIComponent(
     "Hola, me gustaría solicitar información para agendar una sesión."
   );
+
+  const [formData, setFormData] = useState({
+    nombre: "",
+    telefono: "",
+    correo: "",
+    motivo: "",
+    mensaje: "",
+  });
+
+  const [status, setStatus] = useState({
+    sending: false,
+    success: false,
+    error: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setStatus({
+      sending: true,
+      success: false,
+      error: "",
+    });
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          nombre: formData.nombre,
+          telefono: formData.telefono,
+          correo: formData.correo,
+          motivo_consulta: formData.motivo,
+          mensaje: formData.mensaje,
+          _subject: "Nueva solicitud de contacto desde la página web",
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          result?.errors?.[0]?.message ||
+            "No se pudo enviar tu solicitud. Intenta nuevamente."
+        );
+      }
+
+      setStatus({
+        sending: false,
+        success: true,
+        error: "",
+      });
+
+      setFormData({
+        nombre: "",
+        telefono: "",
+        correo: "",
+        motivo: "",
+        mensaje: "",
+      });
+    } catch (error) {
+      setStatus({
+        sending: false,
+        success: false,
+        error:
+          error.message ||
+          "Ocurrió un problema al enviar tu solicitud. Intenta de nuevo.",
+      });
+    }
+  };
 
   return (
     <section className="contact-modern-section" id="contact">
@@ -12,19 +106,36 @@ function ContactSection() {
           <div className="contact-modern-card__panel">
             <span className="contact-modern-card__eyebrow">Contacto</span>
 
+            <span className="contact-modern-card__accent" aria-hidden="true">
+              <span className="contact-modern-card__accent-line"></span>
+              <img
+                src="/mariposa-navbar@2x.png"
+                alt=""
+                className="contact-modern-card__accent-butterfly"
+              />
+              <span className="contact-modern-card__accent-line"></span>
+            </span>
+
             <h2 className="contact-modern-card__title">
-              Da el primer paso hacia un espacio de acompañamiento
+              Da el primer paso hacia tu proceso de acompañamiento
             </h2>
 
             <p className="contact-modern-card__text">
               Si deseas agendar una sesión o recibir más información, puedes
-              escribirme por formulario o por WhatsApp. Será un gusto
-              acompañarte con escucha, claridad y calidez.
+              escribirme por WhatsApp o mediante el formulario de contacto.
+              Estoy disponible para brindarte un espacio de acompañamiento
+              terapéutico en duelo y pérdida.
             </p>
 
             <div className="contact-modern-card__info">
               <div className="contact-modern-card__info-item">
-                <span className="contact-modern-card__icon">✦</span>
+                <span className="contact-modern-card__icon-wrap">
+                  <img
+                    src="/mariposa-navbar@2x.png"
+                    alt=""
+                    className="contact-modern-card__icon-butterfly"
+                  />
+                </span>
                 <div>
                   <span className="contact-modern-card__label">
                     Teléfono / WhatsApp
@@ -39,7 +150,13 @@ function ContactSection() {
               </div>
 
               <div className="contact-modern-card__info-item">
-                <span className="contact-modern-card__icon">✦</span>
+                <span className="contact-modern-card__icon-wrap">
+                  <img
+                    src="/mariposa-navbar@2x.png"
+                    alt=""
+                    className="contact-modern-card__icon-butterfly"
+                  />
+                </span>
                 <div>
                   <span className="contact-modern-card__label">Correo</span>
                   <a
@@ -52,23 +169,33 @@ function ContactSection() {
               </div>
 
               <div className="contact-modern-card__info-item">
-                <span className="contact-modern-card__icon">✦</span>
+                <span className="contact-modern-card__icon-wrap">
+                  <img
+                    src="/mariposa-navbar@2x.png"
+                    alt=""
+                    className="contact-modern-card__icon-butterfly"
+                  />
+                </span>
                 <div>
                   <span className="contact-modern-card__label">Atención</span>
                   <span className="contact-modern-card__value">
-                    Presencial y Online
+                    Presencial y online
                   </span>
                 </div>
               </div>
 
               <div className="contact-modern-card__info-item">
-                <span className="contact-modern-card__icon">✦</span>
+                <span className="contact-modern-card__icon-wrap">
+                  <img
+                    src="/mariposa-navbar@2x.png"
+                    alt=""
+                    className="contact-modern-card__icon-butterfly"
+                  />
+                </span>
                 <div>
-                  <span className="contact-modern-card__label">
-                    Consultorio
-                  </span>
+                  <span className="contact-modern-card__label">Consultorio</span>
                   <span className="contact-modern-card__value">
-                    Zona Sur, CDMX
+                    Benito Juárez, CDMX
                   </span>
                 </div>
               </div>
@@ -82,7 +209,7 @@ function ContactSection() {
                 className="contact-modern-card__secondary"
               >
                 <i className="bi bi-whatsapp"></i>
-                <span>WhatsApp</span>
+                <span>Escribir por WhatsApp</span>
               </a>
 
               <a
@@ -98,77 +225,138 @@ function ContactSection() {
           </div>
 
           <div className="contact-modern-form-wrap">
-            <div className="contact-modern-form-card">
-              <h3 className="contact-modern-form-card__title">
-                Solicita información
-              </h3>
-
-              <form className="contact-modern-form">
-                <div className="contact-modern-form__field">
-                  <label htmlFor="name">Nombre</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Tu nombre"
-                  />
+            {status.success ? (
+              <div className="contact-modern-success" role="status" aria-live="polite">
+                <div className="contact-modern-success__icon">
+                  <i className="bi bi-envelope-check"></i>
                 </div>
 
-                <div className="contact-modern-form__field">
-                  <label htmlFor="email">Correo electrónico</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Tu correo"
-                  />
-                </div>
+                <h3 className="contact-modern-success__title">
+                  Tu solicitud fue enviada correctamente
+                </h3>
 
-                <div className="contact-modern-form__field">
-                  <label htmlFor="phone">Teléfono</label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    placeholder="Tu teléfono"
-                  />
-                </div>
+                <p className="contact-modern-success__text">
+                  Gracias por escribir. Tu mensaje ha sido recibido y será
+                  respondido con la atención y sensibilidad que tu proceso merece.
+                </p>
 
-                <div className="contact-modern-form__field">
-                  <label htmlFor="service">Motivo de consulta</label>
-                  <select id="service" name="service" defaultValue="">
-                    <option value="" disabled>
-                      Selecciona una opción
-                    </option>
-                    <option value="duelo">Duelo y pérdida</option>
-                    <option value="tanatologia">
-                      Acompañamiento tanatológico
-                    </option>
-                    <option value="ansiedad">
-                      Ansiedad y crisis emocionales
-                    </option>
-                    <option value="transiciones">
-                      Cambios de vida y transiciones
-                    </option>
-                    <option value="contencion">Contención emocional</option>
-                  </select>
-                </div>
-
-                <div className="contact-modern-form__field">
-                  <label htmlFor="message">Mensaje</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows="5"
-                    placeholder="Cuéntame brevemente en qué puedo acompañarte"
-                  ></textarea>
-                </div>
-
-                <button type="submit" className="contact-modern-form__submit">
-                  Enviar solicitud
+                <button
+                  type="button"
+                  className="contact-modern-success__button"
+                  onClick={() =>
+                    setStatus({ sending: false, success: false, error: "" })
+                  }
+                >
+                  Enviar otra solicitud
                 </button>
-              </form>
-            </div>
+              </div>
+            ) : (
+              <div className="contact-modern-form-card">
+                <h3 className="contact-modern-form-card__title">
+                  Solicita información
+                </h3>
+
+                <form className="contact-modern-form" onSubmit={handleSubmit}>
+                  <div className="contact-modern-form__field">
+                    <label htmlFor="name">Nombre</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="nombre"
+                      value={formData.nombre}
+                      onChange={handleChange}
+                      placeholder="Tu nombre"
+                      required
+                      disabled={status.sending}
+                    />
+                  </div>
+
+                  <div className="contact-modern-form__field">
+                    <label htmlFor="phone">Teléfono</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="telefono"
+                      value={formData.telefono}
+                      onChange={handleChange}
+                      placeholder="Tu teléfono"
+                      required
+                      disabled={status.sending}
+                    />
+                  </div>
+
+                  <div className="contact-modern-form__field">
+                    <label htmlFor="email">Correo electrónico</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="correo"
+                      value={formData.correo}
+                      onChange={handleChange}
+                      placeholder="Tu correo"
+                      required
+                      disabled={status.sending}
+                    />
+                  </div>
+
+                  <div className="contact-modern-form__field">
+                    <label htmlFor="service">Motivo de consulta</label>
+                    <select
+                      id="service"
+                      name="motivo"
+                      value={formData.motivo}
+                      onChange={handleChange}
+                      required
+                      disabled={status.sending}
+                    >
+                      <option value="" disabled>
+                        Selecciona una opción
+                      </option>
+                      {consultationReasons.map((reason) => (
+                        <option key={reason} value={reason}>
+                          {reason}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className="contact-modern-form__field">
+                    <label htmlFor="message">Mensaje</label>
+                    <textarea
+                      id="message"
+                      name="mensaje"
+                      rows="5"
+                      value={formData.mensaje}
+                      onChange={handleChange}
+                      placeholder="Cuéntame brevemente en qué puedo apoyarte"
+                      required
+                      disabled={status.sending}
+                    ></textarea>
+                  </div>
+
+                  {status.error ? (
+                    <p className="contact-modern-form__error" role="alert">
+                      {status.error}
+                    </p>
+                  ) : null}
+
+                  <button
+                    type="submit"
+                    className="contact-modern-form__submit"
+                    disabled={status.sending}
+                  >
+                    <i
+                      className={`bi ${
+                        status.sending ? "bi-hourglass-split" : "bi-send"
+                      }`}
+                    ></i>
+                    <span>
+                      {status.sending ? "Enviando..." : "Enviar solicitud"}
+                    </span>
+                  </button>
+                </form>
+              </div>
+            )}
           </div>
         </div>
       </div>
