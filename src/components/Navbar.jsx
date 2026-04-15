@@ -212,7 +212,7 @@ function Navbar() {
                     />
 
                     <div className="brand-text">
-                        <span className="brand-title">María Cervantes</span>
+                        <span className="brand-title">María Cervantes Forastieri</span>
                         <span className="brand-subtitle">Psicóloga • Tanatóloga</span>
                     </div>
                 </a>

@@ -110,10 +110,6 @@ function HeroSection() {
                       className="img-fluid hero-image"
                     />
                   </div>
-
-                  <p className="hero-photo-signature">
-                    María Cervantes Forastieri
-                  </p>
                 </div>
               </div>
             </div>
