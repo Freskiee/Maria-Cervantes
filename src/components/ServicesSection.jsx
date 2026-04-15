@@ -18,6 +18,28 @@ const services = [
   },
 ];
 
+const handleContactClick = (e) => {
+  e.preventDefault();
+
+  const target = document.querySelector("#contact");
+  if (!target) return;
+
+  const navbarHeight =
+    parseFloat(
+      getComputedStyle(document.documentElement).getPropertyValue(
+        "--navbar-height"
+      )
+    ) || 84;
+
+  const targetTop =
+    target.getBoundingClientRect().top + window.pageYOffset - navbarHeight + 1;
+
+  window.scrollTo({
+    top: Math.max(0, targetTop),
+    behavior: "smooth",
+  });
+};
+
 function ServicesSection() {
   return (
     <section className="services-editorial-section" id="therapy-services">
@@ -115,7 +137,11 @@ function ServicesSection() {
                   {service.type}
                 </span>
 
-                <a href="#contact" className="service-editorial-card__link">
+                <a
+                  href="#contact"
+                  className="service-editorial-card__link"
+                  onClick={handleContactClick}
+                >
                   <i className="bi bi-calendar3"></i>
                   <span>Agendar cita</span>
                 </a>

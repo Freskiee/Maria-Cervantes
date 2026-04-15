@@ -6,6 +6,28 @@ function HeroSection() {
     "Hola, me gustaría solicitar información para agendar una sesión."
   );
 
+  const handleContactClick = (e) => {
+    e.preventDefault();
+
+    const target = document.querySelector("#contact");
+    if (!target) return;
+
+    const navbarHeight =
+      parseFloat(
+        getComputedStyle(document.documentElement).getPropertyValue(
+          "--navbar-height"
+        )
+      ) || 84;
+
+    const targetTop =
+      target.getBoundingClientRect().top + window.pageYOffset - navbarHeight + 1;
+
+    window.scrollTo({
+      top: Math.max(0, targetTop),
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       <section id="hero" className="hero-section">
@@ -48,7 +70,11 @@ function HeroSection() {
                 </p>
 
                 <div className="hero-actions d-flex flex-column flex-sm-row gap-3 mt-4">
-                  <a href="#contact" className="hero-btn hero-btn--primary">
+                  <a
+                    href="#contact"
+                    className="hero-btn hero-btn--primary"
+                    onClick={handleContactClick}
+                  >
                     Agendar sesión
                   </a>
 
