@@ -1,5 +1,6 @@
 import "../styles/help-section.css";
 import helpTherapyImage from "../assets/img/help-therapy-illustration.jpg";
+import RevealOnScroll from "../components/RevealOnScroll";
 
 const helpItems = [
   {
@@ -39,64 +40,85 @@ function HelpSection() {
     <section className="therapy-help-section" id="help">
       <div className="container therapy-help__content">
         <div className="therapy-help__header">
-          <span className="therapy-help__kicker">Acompañamiento terapéutico</span>
+          <RevealOnScroll className="reveal-soft" delay={20} y={10}>
+            <span className="therapy-help__kicker">
+              Acompañamiento terapéutico
+            </span>
+          </RevealOnScroll>
 
-          <span className="therapy-help__ornament" aria-hidden="true">
-            <span className="therapy-help__ornament-line"></span>
-            <img
-              src="/mariposa-navbar@2x.png"
-              alt=""
-              className="therapy-help__ornament-butterfly"
-            />
-            <span className="therapy-help__ornament-line"></span>
-          </span>
+          <RevealOnScroll className="reveal-soft" delay={90} y={10}>
+            <span className="therapy-help__ornament" aria-hidden="true">
+              <span className="therapy-help__ornament-line"></span>
+              <img
+                src="/mariposa-navbar@2x.png"
+                alt=""
+                className="therapy-help__ornament-butterfly"
+              />
+              <span className="therapy-help__ornament-line"></span>
+            </span>
+          </RevealOnScroll>
         </div>
 
         <div className="therapy-help__intro-layout">
           <div className="therapy-help__visual">
-            <div className="therapy-help__image-frame">
-              <div className="therapy-help__image-card">
-                <img
-                  src={helpTherapyImage}
-                  alt="Espacio de acompañamiento terapéutico"
-                  className="therapy-help__image"
-                />
+            <RevealOnScroll
+              className="reveal-image"
+              delay={130}
+              y={14}
+              scale={0.992}
+            >
+              <div className="therapy-help__image-frame">
+                <div className="therapy-help__image-card">
+                  <img
+                    src={helpTherapyImage}
+                    alt="Espacio de acompañamiento terapéutico"
+                    className="therapy-help__image"
+                  />
+                </div>
               </div>
-            </div>
+            </RevealOnScroll>
           </div>
 
           <div className="therapy-help__summary">
-            <div className="therapy-help__summary-card">
-              <h2 className="therapy-help__title">¿EN QUÉ TE PUEDO AYUDAR?</h2>
+            <RevealOnScroll className="reveal-soft" delay={180} y={12}>
+              <div className="therapy-help__summary-card">
+                <h2 className="therapy-help__title">¿EN QUÉ TE PUEDO AYUDAR?</h2>
 
-              <p className="therapy-help__description">
-                Desde el acompañamiento tanatológico, te brindo apoyo en procesos de
-                duelo y pérdida, ayudándote a transitar y resignificar experiencias
-                de cambio y dolor emocional.
-              </p>
+                <p className="therapy-help__description">
+                  Desde el acompañamiento tanatológico, te brindo apoyo en
+                  procesos de duelo y pérdida, ayudándote a transitar y
+                  resignificar experiencias de cambio y dolor emocional.
+                </p>
 
-              <p className="therapy-help__summary-text">
-                Cada experiencia de duelo es distinta. El acompañamiento busca
-                ofrecerte un espacio humano, seguro y profesional donde puedas
-                expresar lo que estás viviendo, resignificar tu proceso y encontrar
-                contención emocional.
-              </p>
-            </div>
+                <p className="therapy-help__summary-text">
+                  Cada experiencia de duelo es distinta. El acompañamiento busca
+                  ofrecerte un espacio humano, seguro y profesional donde puedas
+                  expresar lo que estás viviendo, resignificar tu proceso y
+                  encontrar contención emocional.
+                </p>
+              </div>
+            </RevealOnScroll>
           </div>
         </div>
 
         <div className="therapy-help__grid">
           {helpItems.map((item, index) => (
-            <article
-              className={`therapy-help-card therapy-help-card--${item.tone}`}
+            <RevealOnScroll
               key={index}
+              className="reveal-soft"
+              delay={120 + index * 70}
+              y={10}
             >
-              <div className="therapy-help-card__icon-wrap">
-                <i className={`bi ${item.icon}`}></i>
-              </div>
+              <article
+                className={`therapy-help-card therapy-help-card--${item.tone}`}
+              >
+                <div className="therapy-help-card__icon-wrap">
+                  <i className={`bi ${item.icon}`}></i>
+                </div>
 
-              <h3 className="therapy-help-card__title">{item.title}</h3>
-            </article>
+                <h3 className="therapy-help-card__title">{item.title}</h3>
+              </article>
+            </RevealOnScroll>
           ))}
         </div>
       </div>

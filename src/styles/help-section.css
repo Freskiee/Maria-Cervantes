@@ -76,6 +76,12 @@
   min-width: 0;
 }
 
+/* importante para que el wrapper de RevealOnScroll no rompa el centrado */
+.therapy-help__visual > .reveal-on-scroll,
+.therapy-help__summary > .reveal-on-scroll {
+  height: 100%;
+}
+
 .therapy-help__image-frame {
   position: relative;
   height: 100%;

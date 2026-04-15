@@ -46,7 +46,6 @@
   padding: 0 1rem;
 }
 
-/* etiqueta superior, YA NO pill */
 .about-wave-kicker {
   display: inline-block;
   font-size: 0.82rem;
@@ -59,7 +58,6 @@
   user-select: none;
 }
 
-/* bloque de título */
 .about-wave-heading-block {
   margin: 0.7rem 0 1.55rem;
 }
@@ -98,7 +96,6 @@
   opacity: 0.9;
 }
 
-/* título más equilibrado */
 .about-wave-title {
   margin: 0;
   font-family: var(--font-heading);
@@ -110,7 +107,6 @@
   text-wrap: balance;
 }
 
-/* párrafo más fino y con mejor respiración */
 .about-wave-text {
   max-width: 860px;
   margin: 0 auto;

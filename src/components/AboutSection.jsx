@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import RevealOnScroll from "../components/RevealOnScroll";
 import "../styles/about-section.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -86,31 +87,47 @@ function AboutSection() {
 
       <div className="container about-wave-content">
         <div className="about-wave-inner">
-          <span className="about-wave-kicker">¿Quién soy?</span>
+          <RevealOnScroll className="reveal-soft" delay={20} y={10}>
+            <span className="about-wave-kicker">¿Quién soy?</span>
+          </RevealOnScroll>
 
           <div className="about-wave-heading-block">
-            
-            <span className="about-wave-accent" aria-hidden="true">
-              <span className="about-wave-accent-line"></span>
-              <img
-                src="/mariposa-navbar@2x.png"
-                alt=""
-                className="about-wave-accent-butterfly"
-              />
-              <span className="about-wave-accent-line"></span>
-            </span>
+            <RevealOnScroll className="reveal-soft" delay={90} y={10}>
+              <span className="about-wave-accent" aria-hidden="true">
+                <span className="about-wave-accent-line"></span>
+                <img
+                  src="/mariposa-navbar@2x.png"
+                  alt=""
+                  className="about-wave-accent-butterfly"
+                />
+                <span className="about-wave-accent-line"></span>
+              </span>
+            </RevealOnScroll>
 
-            <h2 className="about-wave-title">SOBRE MÍ</h2>
+            <RevealOnScroll className="reveal-soft" delay={140} y={12}>
+              <h2 className="about-wave-title">SOBRE MÍ</h2>
+            </RevealOnScroll>
           </div>
 
           <div className="about-wave-text">
-            <span className="about-wave-paragraph">
-              Soy María Cervantes Forastieri, licenciada en Psicología por la Universidad Latinoamericana, con certificación en Tanatología con Gaby Pérez Islas y un diplomado en Tanatología por la Universidad Nacional Autónoma de México (UNAM)
-            </span>
+            <RevealOnScroll className="reveal-soft" delay={210} y={12}>
+              <span className="about-wave-paragraph">
+                Soy María Cervantes Forastieri, licenciada en Psicología por la
+                Universidad Latinoamericana, con certificación en Tanatología
+                con Gaby Pérez Islas y un diplomado en Tanatología por la
+                Universidad Nacional Autónoma de México (UNAM)
+              </span>
+            </RevealOnScroll>
 
-            <span className="about-wave-paragraph">
-              Me especializo en el acompañamiento terapéutico de procesos de duelo, pérdidas y crisis emocionales. Desde la intervención psicológica y el enfoque tanatológico, ofrezco un espacio seguro y humano para acompañarte en lo que estás atravesando, brindando contención y orientación profesional.
-            </span>
+            <RevealOnScroll className="reveal-soft" delay={290} y={12}>
+              <span className="about-wave-paragraph">
+                Me especializo en el acompañamiento terapéutico de procesos de
+                duelo, pérdidas y crisis emocionales. Desde la intervención
+                psicológica y el enfoque tanatológico, ofrezco un espacio seguro
+                y humano para acompañarte en lo que estás atravesando,
+                brindando contención y orientación profesional.
+              </span>
+            </RevealOnScroll>
           </div>
         </div>
       </div>
