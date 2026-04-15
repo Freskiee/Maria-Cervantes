@@ -309,6 +309,52 @@ section[id] {
 }
 
 /* =========================================
+   REVEAL ON SCROLL
+========================================= */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-y, 24px), 0)
+    scale(var(--reveal-scale, 1));
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* variantes útiles */
+.reveal-on-scroll.reveal-soft {
+  --reveal-y: 18px;
+}
+
+.reveal-on-scroll.reveal-deep {
+  --reveal-y: 34px;
+}
+
+.reveal-on-scroll.reveal-image {
+  --reveal-y: 20px;
+  --reveal-scale: 0.97;
+}
+
+.reveal-on-scroll.reveal-fast {
+  transition-duration: 0.52s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll,
+  .reveal-on-scroll.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* =========================================
    RESPONSIVE
 ========================================= */
 @media (max-width: 1199.98px) {

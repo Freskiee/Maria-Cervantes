@@ -1,5 +1,6 @@
 import heroPhoto from "../assets/img/hero-photo.jpg";
 import "../styles/hero-section.css";
+import RevealOnScroll from "../components/RevealOnScroll";
 
 function HeroSection() {
   const whatsappMessage = encodeURIComponent(
