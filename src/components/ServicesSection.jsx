@@ -69,7 +69,7 @@ function ServicesSection() {
       <div className="container services-editorial__content">
         <div className="services-editorial__hero">
           <div className="services-editorial__copy">
-            <RevealOnScroll className="reveal-left" delay={40} scale={0.994}>
+            <RevealOnScroll className="reveal-soft" delay={40} y={10}>
               <div className="services-editorial__copy-inner">
                 <span className="services-editorial__eyebrow">Servicios</span>
 
@@ -107,7 +107,7 @@ function ServicesSection() {
           </div>
 
           <div className="services-editorial__visual">
-            <RevealOnScroll className="reveal-right" delay={120} scale={0.992}>
+            <RevealOnScroll className="reveal-image" delay={120} y={12} scale={0.992}>
               <div className="services-editorial__image-wrap">
                 <div className="services-editorial__image-frame">
                   <div className="services-editorial__image-card">

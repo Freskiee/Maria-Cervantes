@@ -1,4 +1,3 @@
-
 .contact-modern-section {
   padding: 4.9rem 0 5.3rem;
   background: linear-gradient(
@@ -73,6 +72,16 @@
   max-width: 560px;
   color: #4f4a44;
   padding: 0.3rem 0;
+}
+
+.contact-modern-card__panel > .reveal-on-scroll,
+.contact-modern-form-wrap > .reveal-on-scroll {
+  height: 100%;
+}
+
+.contact-modern-card__panel-inner,
+.contact-modern-form-shell {
+  height: 100%;
 }
 
 .contact-modern-card__eyebrow {
@@ -320,8 +329,6 @@
   flex-direction: column;
   gap: 0.28rem;
 }
-
-
 
 .contact-modern-form__field label {
   font-size: 0.78rem;

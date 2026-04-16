@@ -106,7 +106,7 @@ function TestimonialsSection() {
 
         <div className="testimonials-section__layout">
           <div className="testimonials-section__copy">
-            <RevealOnScroll className="reveal-left" delay={120} scale={0.994}>
+            <RevealOnScroll className="reveal-soft" delay={100} y={10}>
               <div className="testimonials-section__copy-inner">
                 <h2 className="testimonials-section__title">
                   Un espacio de escucha, sensibilidad y acompañamiento
@@ -125,7 +125,7 @@ function TestimonialsSection() {
           </div>
 
           <div className="testimonials-section__form-wrap">
-            <RevealOnScroll className="reveal-right" delay={170} scale={0.992}>
+            <RevealOnScroll className="reveal-image" delay={160} y={12} scale={0.994}>
               <div className="testimonials-section__form-shell">
                 {status.success ? (
                   <div
