@@ -62,9 +62,8 @@ function HelpSection() {
         <div className="therapy-help__intro-layout">
           <div className="therapy-help__visual">
             <RevealOnScroll
-              className="reveal-image"
-              delay={130}
-              y={14}
+              className="reveal-left"
+              delay={120}
               scale={0.992}
             >
               <div className="therapy-help__image-frame">
@@ -80,7 +79,7 @@ function HelpSection() {
           </div>
 
           <div className="therapy-help__summary">
-            <RevealOnScroll className="reveal-soft" delay={180} y={12}>
+            <RevealOnScroll className="reveal-right" delay={180} scale={0.992}>
               <div className="therapy-help__summary-card">
                 <h2 className="therapy-help__title">¿EN QUÉ TE PUEDO AYUDAR?</h2>
 

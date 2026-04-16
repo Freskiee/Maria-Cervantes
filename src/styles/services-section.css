@@ -45,9 +45,21 @@
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 11% 78%, rgba(120, 213, 230, 0.08), transparent 22%),
-    radial-gradient(circle at 86% 16%, rgba(58, 134, 239, 0.05), transparent 20%),
-    radial-gradient(circle at 62% 42%, rgba(255, 255, 255, 0.24), transparent 24%);
+    radial-gradient(
+      circle at 11% 78%,
+      rgba(120, 213, 230, 0.08),
+      transparent 22%
+    ),
+    radial-gradient(
+      circle at 86% 16%,
+      rgba(58, 134, 239, 0.05),
+      transparent 20%
+    ),
+    radial-gradient(
+      circle at 62% 42%,
+      rgba(255, 255, 255, 0.24),
+      transparent 24%
+    );
 }
 
 .services-editorial__content {
@@ -91,6 +103,15 @@
       rgba(255, 255, 255, 0.06) 100%
     );
   pointer-events: none;
+}
+
+.services-editorial__copy > .reveal-on-scroll,
+.services-editorial__visual > .reveal-on-scroll {
+  height: 100%;
+}
+
+.services-editorial__copy-inner {
+  height: 100%;
 }
 
 .services-editorial__eyebrow {
@@ -494,16 +515,16 @@
     line-height: 1.74;
   }
 
- .services-editorial__points li {
-  font-size: 0.94rem;
-  padding-left: 1.4rem;
-}
+  .services-editorial__points li {
+    font-size: 0.94rem;
+    padding-left: 1.4rem;
+  }
 
-.services-editorial__points li::before {
-  width: 13px;
-  height: 13px;
-  top: 0.36rem;
-}
+  .services-editorial__points li::before {
+    width: 13px;
+    height: 13px;
+    top: 0.36rem;
+  }
 
   .services-editorial__image-frame {
     padding: 0.62rem;

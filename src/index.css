@@ -337,7 +337,8 @@ span.section-eyebrow,
 ========================================= */
 .reveal-on-scroll {
   opacity: 0;
-  transform: translate3d(0, var(--reveal-y, 12px), 0)
+  transform:
+    translate3d(var(--reveal-x, 0), var(--reveal-y, 12px), 0)
     scale(var(--reveal-scale, 1));
   transition:
     opacity 1.05s cubic-bezier(0.23, 1, 0.32, 1),
@@ -353,19 +354,43 @@ span.section-eyebrow,
 
 .reveal-on-scroll.reveal-soft {
   --reveal-y: 10px;
+  --reveal-x: 0px;
 }
 
 .reveal-on-scroll.reveal-deep {
   --reveal-y: 18px;
+  --reveal-x: 0px;
 }
 
 .reveal-on-scroll.reveal-image {
   --reveal-y: 12px;
+  --reveal-x: 0px;
   --reveal-scale: 0.985;
+}
+
+.reveal-on-scroll.reveal-left {
+  --reveal-x: -34px;
+  --reveal-y: 0px;
+  --reveal-scale: 0.992;
+}
+
+.reveal-on-scroll.reveal-right {
+  --reveal-x: 34px;
+  --reveal-y: 0px;
+  --reveal-scale: 0.992;
 }
 
 .reveal-on-scroll.reveal-fast {
   transition-duration: 0.82s;
+}
+
+@media (max-width: 575.98px) {
+  .reveal-on-scroll.reveal-left,
+  .reveal-on-scroll.reveal-right {
+    --reveal-x: 0px;
+    --reveal-y: 12px;
+    --reveal-scale: 0.992;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

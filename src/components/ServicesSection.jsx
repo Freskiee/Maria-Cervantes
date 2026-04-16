@@ -1,5 +1,6 @@
 import "../styles/services-section.css";
 import servicesGroupImage from "../assets/img/services-group-illustration.jpg";
+import RevealOnScroll from "../components/RevealOnScroll";
 
 const services = [
   {
@@ -68,85 +69,101 @@ function ServicesSection() {
       <div className="container services-editorial__content">
         <div className="services-editorial__hero">
           <div className="services-editorial__copy">
-            <span className="services-editorial__eyebrow">Servicios</span>
+            <RevealOnScroll className="reveal-left" delay={40} scale={0.994}>
+              <div className="services-editorial__copy-inner">
+                <span className="services-editorial__eyebrow">Servicios</span>
 
-            <span className="services-editorial__accent" aria-hidden="true">
-              <span className="services-editorial__accent-line"></span>
-              <img
-                src="/mariposa-navbar@2x.png"
-                alt=""
-                className="services-editorial__accent-butterfly"
-              />
-              <span className="services-editorial__accent-line"></span>
-            </span>
+                <span className="services-editorial__accent" aria-hidden="true">
+                  <span className="services-editorial__accent-line"></span>
+                  <img
+                    src="/mariposa-navbar@2x.png"
+                    alt=""
+                    className="services-editorial__accent-butterfly"
+                  />
+                  <span className="services-editorial__accent-line"></span>
+                </span>
 
-            <h2 className="services-editorial__title">
-              Un espacio terapéutico para el acompañamiento del duelo y la
-              pérdida.
-            </h2>
+                <h2 className="services-editorial__title">
+                  Un espacio terapéutico para el acompañamiento del duelo y la
+                  pérdida.
+                </h2>
 
-            <p className="services-editorial__description">
-              Este espacio está diseñado para brindarte apoyo durante tu
-              proceso, respetando tu ritmo y tu experiencia emocional.
-            </p>
+                <p className="services-editorial__description">
+                  Este espacio está diseñado para brindarte apoyo durante tu
+                  proceso, respetando tu ritmo y tu experiencia emocional.
+                </p>
 
-            <ul className="services-editorial__points">
-              <li>Atención profesional con enfoque humano y sensible al duelo</li>
-              <li>Modalidad presencial y en línea</li>
-              <li>Espacios de escucha, contención y orientación terapéutica</li>
-            </ul>
+                <ul className="services-editorial__points">
+                  <li>
+                    Atención profesional con enfoque humano y sensible al duelo
+                  </li>
+                  <li>Modalidad presencial y en línea</li>
+                  <li>
+                    Espacios de escucha, contención y orientación terapéutica
+                  </li>
+                </ul>
+              </div>
+            </RevealOnScroll>
           </div>
 
           <div className="services-editorial__visual">
-            <div className="services-editorial__image-wrap">
-              <div className="services-editorial__image-frame">
-                <div className="services-editorial__image-card">
-                  <img
-                    src={servicesGroupImage}
-                    alt="Acompañamiento terapéutico"
-                    className="services-editorial__image"
-                  />
+            <RevealOnScroll className="reveal-right" delay={120} scale={0.992}>
+              <div className="services-editorial__image-wrap">
+                <div className="services-editorial__image-frame">
+                  <div className="services-editorial__image-card">
+                    <img
+                      src={servicesGroupImage}
+                      alt="Acompañamiento terapéutico"
+                      className="services-editorial__image"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
+            </RevealOnScroll>
           </div>
         </div>
 
         <div className="services-editorial__cards services-editorial__cards--two">
           {services.map((service, index) => (
-            <article
-              className={`service-editorial-card service-editorial-card--${service.tone}`}
+            <RevealOnScroll
               key={index}
+              className="reveal-soft"
+              delay={140 + index * 90}
+              y={10}
             >
-              <div className="service-editorial-card__media">
-                <div className="service-editorial-card__icon-wrap">
-                  <i className={`bi ${service.icon}`}></i>
+              <article
+                className={`service-editorial-card service-editorial-card--${service.tone}`}
+              >
+                <div className="service-editorial-card__media">
+                  <div className="service-editorial-card__icon-wrap">
+                    <i className={`bi ${service.icon}`}></i>
+                  </div>
                 </div>
-              </div>
 
-              <div className="service-editorial-card__body">
-                <h3 className="service-editorial-card__title">
-                  {service.title}
-                </h3>
+                <div className="service-editorial-card__body">
+                  <h3 className="service-editorial-card__title">
+                    {service.title}
+                  </h3>
 
-                <p className="service-editorial-card__subtitle">
-                  {service.subtitle}
-                </p>
+                  <p className="service-editorial-card__subtitle">
+                    {service.subtitle}
+                  </p>
 
-                <span className="service-editorial-card__type">
-                  {service.type}
-                </span>
+                  <span className="service-editorial-card__type">
+                    {service.type}
+                  </span>
 
-                <a
-                  href="#contact"
-                  className="service-editorial-card__link"
-                  onClick={handleContactClick}
-                >
-                  <i className="bi bi-calendar3"></i>
-                  <span>Agendar cita</span>
-                </a>
-              </div>
-            </article>
+                  <a
+                    href="#contact"
+                    className="service-editorial-card__link"
+                    onClick={handleContactClick}
+                  >
+                    <i className="bi bi-calendar3"></i>
+                    <span>Agendar cita</span>
+                  </a>
+                </div>
+              </article>
+            </RevealOnScroll>
           ))}
         </div>
       </div>

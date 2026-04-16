@@ -7,7 +7,6 @@ function RevealOnScroll({
     y = 24,
     scale = 1,
     once = true,
-    as: Tag = "div",
 }) {
     const ref = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
@@ -38,7 +37,7 @@ function RevealOnScroll({
     }, [once]);
 
     return (
-        <Tag
+        <div
             ref={ref}
             className={`reveal-on-scroll ${isVisible ? "is-visible" : ""} ${className}`}
             style={{
@@ -48,7 +47,7 @@ function RevealOnScroll({
             }}
         >
             {children}
-        </Tag>
+        </div>
     );
 }
 
