@@ -172,6 +172,16 @@
   display: flex;
 }
 
+.testimonials-section__copy > .reveal-on-scroll,
+.testimonials-section__form-wrap > .reveal-on-scroll {
+  height: 100%;
+}
+
+.testimonials-section__copy-inner,
+.testimonials-section__form-shell {
+  height: 100%;
+}
+
 .testimonials-form {
   position: relative;
   width: 100%;
