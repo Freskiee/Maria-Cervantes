@@ -7,7 +7,6 @@ const TOP_TARGET = "__TOP__";
 function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeMobileLink, setActiveMobileLink] = useState("");
-    const scrollLockYRef = useRef(0);
     const pendingScrollTargetRef = useRef(null);
 
     useEffect(() => {
@@ -88,52 +87,17 @@ function Navbar() {
         const html = document.documentElement;
 
         if (isMenuOpen && window.innerWidth < MOBILE_BREAKPOINT) {
-            scrollLockYRef.current = window.scrollY;
             body.classList.add("menu-open");
             html.classList.add("menu-open");
-            body.style.top = `-${scrollLockYRef.current}px`;
             return;
         }
 
-        const wasLocked =
-            body.classList.contains("menu-open") || html.classList.contains("menu-open");
-
-        if (wasLocked) {
-            const restoreY = scrollLockYRef.current;
-            const pendingTarget = pendingScrollTargetRef.current;
-
-            body.classList.remove("menu-open");
-            html.classList.remove("menu-open");
-            body.style.top = "";
-
-            const previousScrollBehavior = html.style.scrollBehavior;
-            html.style.scrollBehavior = "auto";
-            window.scrollTo(0, restoreY);
-            html.style.scrollBehavior = previousScrollBehavior;
-
-            if (pendingTarget) {
-                pendingScrollTargetRef.current = null;
-
-                requestAnimationFrame(() => {
-                    requestAnimationFrame(() => {
-                        if (pendingTarget === TOP_TARGET) {
-                            scrollToTop();
-                        } else {
-                            scrollToSelector(pendingTarget);
-                        }
-
-                        setTimeout(() => {
-                            setActiveMobileLink("");
-                        }, 260);
-                    });
-                });
-            }
-        }
+        body.classList.remove("menu-open");
+        html.classList.remove("menu-open");
 
         return () => {
             body.classList.remove("menu-open");
             html.classList.remove("menu-open");
-            body.style.top = "";
         };
     }, [isMenuOpen]);
 
@@ -170,6 +134,13 @@ function Navbar() {
                 setIsMenuOpen(false);
             }, 150);
 
+            setTimeout(() => {
+                scrollToSelector(selector);
+                setTimeout(() => {
+                    setActiveMobileLink("");
+                }, 260);
+            }, 220);
+
             return;
         }
 
@@ -188,6 +159,13 @@ function Navbar() {
                 setTimeout(() => {
                     setIsMenuOpen(false);
                 }, 150);
+
+                setTimeout(() => {
+                    scrollToTop();
+                    setTimeout(() => {
+                        setActiveMobileLink("");
+                    }, 220);
+                }, 220);
             } else {
                 scrollToTop();
                 setTimeout(() => {
@@ -237,10 +215,11 @@ function Navbar() {
                         }`}
                     id="mainNavbar"
                 >
-                    <ul className="navbar-nav align-items-xl-center gap-xl-3 ms-auto">
+                    <ul className="navbar-nav align-items-xl-center gap-xl-2 ms-auto">
                         <li className="nav-item">
                             <a
-                                className={`nav-link ${activeMobileLink === "#hero" ? "is-active-mobile" : ""}`}
+                                className={`nav-link ${activeMobileLink === "#hero" ? "is-active-mobile" : ""
+                                    }`}
                                 href="#hero"
                                 onClick={(e) => handleSectionClick(e, "#hero")}
                             >
@@ -250,7 +229,8 @@ function Navbar() {
 
                         <li className="nav-item">
                             <a
-                                className={`nav-link ${activeMobileLink === "#about" ? "is-active-mobile" : ""}`}
+                                className={`nav-link ${activeMobileLink === "#about" ? "is-active-mobile" : ""
+                                    }`}
                                 href="#about"
                                 onClick={(e) => handleSectionClick(e, "#about")}
                             >
@@ -260,7 +240,8 @@ function Navbar() {
 
                         <li className="nav-item">
                             <a
-                                className={`nav-link ${activeMobileLink === "#help" ? "is-active-mobile" : ""}`}
+                                className={`nav-link ${activeMobileLink === "#help" ? "is-active-mobile" : ""
+                                    }`}
                                 href="#help"
                                 onClick={(e) => handleSectionClick(e, "#help")}
                             >
