@@ -84,20 +84,16 @@ function Navbar() {
 
     useEffect(() => {
         const body = document.body;
-        const html = document.documentElement;
 
         if (isMenuOpen && window.innerWidth < MOBILE_BREAKPOINT) {
             body.classList.add("menu-open");
-            html.classList.add("menu-open");
             return;
         }
 
         body.classList.remove("menu-open");
-        html.classList.remove("menu-open");
 
         return () => {
             body.classList.remove("menu-open");
-            html.classList.remove("menu-open");
         };
     }, [isMenuOpen]);
 
@@ -182,7 +178,7 @@ function Navbar() {
     return (
         <nav className="navbar navbar-expand-xl custom-navbar fixed-top">
             <div className="container">
-                <a className="navbar-brand brand-wrapper" href="/" onClick={handleTopClick}>
+                <a className="navbar-brand brand-wrapper" href="#top" onClick={handleTopClick}>
                     <img
                         src="/mariposa-navbar@2x.png"
                         alt="María Cervantes"
