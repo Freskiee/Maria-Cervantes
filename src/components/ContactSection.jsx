@@ -122,13 +122,14 @@ function ContactSection() {
                 <h2 className="contact-modern-card__title">
                   Da el primer paso hacia tu proceso de acompañamiento
                 </h2>
+                <br />
 
-                <p className="contact-modern-card__text">
+                {/* <p className="contact-modern-card__text">
                   Si deseas agendar una sesión o recibir más información, puedes
                   escribirme por WhatsApp o mediante el formulario de contacto.
                   Estoy disponible para brindarte un espacio de acompañamiento
                   terapéutico en duelo y pérdida.
-                </p>
+                </p> */}
 
                 <div className="contact-modern-card__info">
                   <div className="contact-modern-card__info-item">

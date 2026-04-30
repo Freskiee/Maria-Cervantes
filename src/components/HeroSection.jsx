@@ -91,7 +91,7 @@ function HeroSection() {
                     </a>
                   </div>
 
-                  <ul className="hero-highlights list-unstyled mt-4 mb-0">
+                  {/* <ul className="hero-highlights list-unstyled mt-4 mb-0">
                     <li>
                       <RevealOnScroll className="reveal-soft" delay={140} y={10}>
                         <div className="hero-highlights__item">
@@ -139,7 +139,7 @@ function HeroSection() {
                         </div>
                       </RevealOnScroll>
                     </li>
-                  </ul>
+                  </ul> */}
                 </div>
               </RevealOnScroll>
             </div>

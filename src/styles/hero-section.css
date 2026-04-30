@@ -579,3 +579,38 @@
     transform: translateY(0) scale(1);
   }
 }
+
+@media (max-width: 575.98px) {
+  /* 🦋 Mariposa centrada con líneas más largas */
+  .hero-accent {
+    width: 100%;
+    justify-content: center;
+    gap: 0.65rem;
+    margin: 0.58rem auto 0.82rem;
+  }
+
+  .hero-accent-line {
+    flex: 1;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+  }
+
+  .hero-accent-butterfly {
+    flex: 0 0 auto;
+  }
+
+  /* El título NO debe ir justificado en móvil */
+  .hero-title {
+    text-align: left;
+    text-wrap: balance;
+  }
+
+  /* Solo el párrafo justificado, pero sin ríos enormes */
+  .hero-description {
+    text-align: justify;
+    text-align-last: left;
+    hyphens: auto;
+    word-spacing: normal;
+  }
+}
