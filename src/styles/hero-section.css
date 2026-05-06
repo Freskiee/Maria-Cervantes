@@ -139,6 +139,7 @@
   max-width: 580px;
   margin-bottom: 0;
   text-wrap: pretty;
+  text-align: left;
 }
 
 .hero-actions {
@@ -488,15 +489,12 @@
     text-wrap: balance;
   }
 
-  .hero-description {
-    font-size: 0.96rem;
-    line-height: 1.7;
-    max-width: 100%;
-    text-align: justify;
-    text-align-last: left;
-    hyphens: auto;
-    word-spacing: normal;
-  }
+.hero-description {
+  font-size: 0.96rem;
+  line-height: 1.7;
+  max-width: 100%;
+  text-align: left;
+}
 
   .hero-actions,
   #hero .hero-actions,

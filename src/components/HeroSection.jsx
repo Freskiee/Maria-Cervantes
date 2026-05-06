@@ -65,7 +65,7 @@ function HeroSection() {
                     Un espacio terapéutico diseñado para brindarte contención,
                     escucha y acompañamiento respetuoso en momentos de dolor y
                     transformación personal.
-                    <br />
+                    <br /><br />
                     Atención profesional, cálida y humana, orientada a
                     sostenerte emocionalmente durante tu proceso terapéutico con
                     presencia y sensibilidad.
