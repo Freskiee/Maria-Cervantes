@@ -74,6 +74,7 @@
 
 .hero-kicker {
   display: inline-block;
+  width: auto;
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -83,12 +84,13 @@
   user-select: none;
 }
 
+/* Separador debajo del kicker */
 .hero-accent {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 0.72rem;
-  width: fit-content;
+  width: min(100%, 380px);
   margin: 0.68rem 0 0.9rem;
   user-select: none;
   cursor: default;
@@ -96,15 +98,17 @@
 
 .hero-accent-line {
   display: block;
-  width: clamp(54px, 7vw, 92px);
-  height: 1px;
+  flex: 1;
+  min-width: 0;
+  height: 1.5px;
+  min-height: 1.5px;
   border-radius: 999px;
   background: linear-gradient(
     90deg,
     rgba(23, 151, 234, 0) 0%,
-    rgba(23, 151, 234, 0.14) 18%,
-    rgba(34, 207, 232, 0.42) 50%,
-    rgba(23, 151, 234, 0.14) 82%,
+    rgba(23, 151, 234, 0.16) 22%,
+    rgba(34, 207, 232, 0.62) 50%,
+    rgba(23, 151, 234, 0.16) 78%,
     rgba(23, 151, 234, 0) 100%
   );
 }
@@ -113,7 +117,7 @@
   width: 16px;
   height: 16px;
   object-fit: contain;
-  flex-shrink: 0;
+  flex: 0 0 auto;
 }
 
 .hero-title {
@@ -384,6 +388,10 @@
     display: none;
   }
 
+  .hero-accent {
+    width: min(100%, 470px);
+  }
+
   .hero-title {
     font-size: clamp(1.95rem, 6vw, 2.9rem);
     max-width: 100%;
@@ -446,16 +454,24 @@
   }
 
   .hero-kicker {
+    display: block;
+    width: 100%;
     font-size: 0.72rem;
+    text-align: center;
   }
 
   .hero-accent {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
     gap: 0.52rem;
-    margin: 0.56rem 0 0.78rem;
+    margin: 0.56rem auto 0.78rem;
   }
 
   .hero-accent-line {
-    width: 44px;
+    flex: 1;
+    width: auto;
+    min-width: 0;
   }
 
   .hero-accent-butterfly,
@@ -468,12 +484,18 @@
     font-size: 1.72rem;
     line-height: 1.05;
     max-width: 100%;
+    text-align: left;
+    text-wrap: balance;
   }
 
   .hero-description {
     font-size: 0.96rem;
     line-height: 1.7;
     max-width: 100%;
+    text-align: justify;
+    text-align-last: left;
+    hyphens: auto;
+    word-spacing: normal;
   }
 
   .hero-actions,
@@ -577,40 +599,5 @@
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
-  }
-}
-
-@media (max-width: 575.98px) {
-  /* 🦋 Mariposa centrada con líneas más largas */
-  .hero-accent {
-    width: 100%;
-    justify-content: center;
-    gap: 0.65rem;
-    margin: 0.58rem auto 0.82rem;
-  }
-
-  .hero-accent-line {
-    flex: 1;
-    width: auto;
-    max-width: none;
-    min-width: 0;
-  }
-
-  .hero-accent-butterfly {
-    flex: 0 0 auto;
-  }
-
-  /* El título NO debe ir justificado en móvil */
-  .hero-title {
-    text-align: left;
-    text-wrap: balance;
-  }
-
-  /* Solo el párrafo justificado, pero sin ríos enormes */
-  .hero-description {
-    text-align: justify;
-    text-align-last: left;
-    hyphens: auto;
-    word-spacing: normal;
   }
 }

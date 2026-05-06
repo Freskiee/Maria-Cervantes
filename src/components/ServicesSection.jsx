@@ -14,7 +14,7 @@ const services = [
     title: "Acompañamiento tanatológico para adolescentes y adultos",
     subtitle: "Modalidad presencial o en línea",
     type: "Atención grupal",
-    icon: "bi-people",
+    icon: "bi-people-fill",
     tone: "sand",
   },
 ];
@@ -71,17 +71,19 @@ function ServicesSection() {
           <div className="services-editorial__copy">
             <RevealOnScroll className="reveal-soft" delay={40} y={10}>
               <div className="services-editorial__copy-inner">
-                <span className="services-editorial__eyebrow">Servicios</span>
+                <div className="services-editorial__label">
+                  <span className="services-editorial__eyebrow">Servicios</span>
 
-                <span className="services-editorial__accent" aria-hidden="true">
-                  <span className="services-editorial__accent-line"></span>
-                  <img
-                    src="/mariposa-navbar@2x.png"
-                    alt=""
-                    className="services-editorial__accent-butterfly"
-                  />
-                  <span className="services-editorial__accent-line"></span>
-                </span>
+                  <span className="services-editorial__accent" aria-hidden="true">
+                    <span className="services-editorial__accent-line"></span>
+                    <img
+                      src="/mariposa-navbar@2x.png"
+                      alt=""
+                      className="services-editorial__accent-butterfly"
+                    />
+                    <span className="services-editorial__accent-line"></span>
+                  </span>
+                </div>
 
                 <h2 className="services-editorial__title">
                   Un espacio terapéutico para el acompañamiento del duelo y la

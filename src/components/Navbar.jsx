@@ -265,7 +265,7 @@ function Navbar() {
                         <li className="nav-item mt-3 mt-xl-0 nav-cta-item">
                             <a
                                 className="nav-cta nav-cta--ghost"
-                                href="https://wa.me/525550561776"
+                                href="https://wa.me/525550561776?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20para%20agendar%20una%20sesi%C3%B3n."
                                 target="_blank"
                                 rel="noreferrer"
                                 onClick={closeMenuOnly}

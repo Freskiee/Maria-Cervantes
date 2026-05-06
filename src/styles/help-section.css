@@ -13,13 +13,21 @@
 }
 
 .therapy-help__header {
+  width: max-content;
   max-width: 100%;
-  margin: 0 0 1.65rem;
-  text-align: right;
+  margin: 0 0 1.9rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.therapy-help__header > .reveal-on-scroll {
+  width: 100%;
 }
 
 .therapy-help__kicker {
-  display: inline-block;
+  display: block;
+  width: 100%;
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -27,12 +35,14 @@
   color: var(--color-primary);
   cursor: default;
   user-select: none;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .therapy-help__ornament {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 0.72rem;
   width: 100%;
   margin: 0.72rem 0 0;
@@ -42,15 +52,16 @@
 
 .therapy-help__ornament-line {
   display: block;
-  width: clamp(62px, 8vw, 112px);
-  height: 1px;
+  flex: 1 1 0;
+  height: 1.5px;
+  min-height: 1.5px;
   border-radius: 999px;
   background: linear-gradient(
     90deg,
     rgba(23, 151, 234, 0) 0%,
-    rgba(23, 151, 234, 0.16) 18%,
-    rgba(34, 207, 232, 0.5) 50%,
-    rgba(23, 151, 234, 0.16) 82%,
+    rgba(23, 151, 234, 0.16) 22%,
+    rgba(34, 207, 232, 0.62) 50%,
+    rgba(23, 151, 234, 0.16) 78%,
     rgba(23, 151, 234, 0) 100%
   );
 }
@@ -76,7 +87,6 @@
   min-width: 0;
 }
 
-/* importante para que el wrapper de RevealOnScroll no rompa el centrado */
 .therapy-help__visual > .reveal-on-scroll,
 .therapy-help__summary > .reveal-on-scroll {
   height: 100%;
@@ -226,7 +236,8 @@
     border-color 0.22s ease;
   box-shadow: 0 8px 18px rgba(28, 66, 108, 0.03);
   user-select: none;
-  cursor: default;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .therapy-help-card:hover {
@@ -285,7 +296,6 @@
   line-height: 1.45;
   color: #5a5149;
   max-width: 220px;
-  cursor: default;
   text-wrap: balance;
 }
 
@@ -293,16 +303,6 @@
 @media (max-width: 991.98px) {
   .therapy-help-section {
     padding: 4.8rem 0 5rem;
-  }
-
-  .therapy-help__header {
-    margin: 0 0 1.6rem;
-    text-align: left;
-  }
-
-  .therapy-help__ornament {
-    justify-content: flex-start;
-    margin: 0.72rem 0 0;
   }
 
   .therapy-help__intro-layout {
@@ -333,22 +333,32 @@
   }
 
   .therapy-help__header {
-    margin: 0 0 1.25rem;
-    text-align: left;
+    width: max-content;
+    max-width: 100%;
+    margin: 0 auto 1.25rem;
+    align-items: center;
+  }
+
+  .therapy-help__header > .reveal-on-scroll {
+    width: 100%;
   }
 
   .therapy-help__kicker {
+    width: 100%;
     font-size: 0.74rem;
+    text-align: center;
+    white-space: nowrap;
   }
 
   .therapy-help__ornament {
-    justify-content: flex-start;
+    width: 100%;
     gap: 0.55rem;
-    margin: 0.62rem 0 0;
   }
 
   .therapy-help__ornament-line {
-    width: 46px;
+    flex: 1 1 0;
+    height: 1px;
+    min-height: 1px;
   }
 
   .therapy-help__ornament-butterfly {
@@ -374,7 +384,7 @@
 
   .therapy-help__intro-layout {
     gap: 0.85rem;
-    margin-bottom: 0.95rem;
+    margin-bottom: 1.15rem;
   }
 
   .therapy-help__summary-card {
@@ -401,23 +411,29 @@
 
   .therapy-help__grid {
     grid-template-columns: 1fr;
-    gap: 0.85rem;
+    gap: 0.72rem;
   }
 
   .therapy-help-card {
     min-height: auto;
-    padding: 1rem 0.95rem;
+    padding: 0.9rem 0.95rem;
     border-radius: 18px;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 0.85rem;
   }
 
   .therapy-help-card__icon-wrap {
-    width: 36px;
-    height: 36px;
-    margin-bottom: 0.72rem;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0;
+    flex-shrink: 0;
   }
 
   .therapy-help-card__title {
-    font-size: 0.94rem;
+    font-size: 0.92rem;
+    line-height: 1.4;
     max-width: 100%;
   }
 }

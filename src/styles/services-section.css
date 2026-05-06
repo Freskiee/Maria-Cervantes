@@ -114,40 +114,54 @@
   height: 100%;
 }
 
+.services-editorial__label {
+  width: max-content;
+  min-width: 150px;
+  max-width: 100%;
+  margin: 0 0 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .services-editorial__eyebrow {
-  display: inline-block;
+  display: block;
+  width: 100%;
   margin-bottom: 0;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  text-align: center;
   color: var(--color-primary);
   cursor: default;
   user-select: none;
+  white-space: nowrap;
 }
 
 .services-editorial__accent {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 0.72rem;
   width: fit-content;
-  margin: 0.72rem 0 1rem;
+  margin: 0.7rem auto 0;
   user-select: none;
   cursor: default;
 }
 
 .services-editorial__accent-line {
   display: block;
-  width: clamp(58px, 7vw, 96px);
-  height: 1px;
+  width: clamp(42px, 4.8vw, 68px);
+  height: 1.5px;
+  min-height: 1.5px;
   border-radius: 999px;
   background: linear-gradient(
     90deg,
     rgba(23, 151, 234, 0) 0%,
-    rgba(23, 151, 234, 0.14) 18%,
-    rgba(34, 207, 232, 0.45) 50%,
-    rgba(23, 151, 234, 0.14) 82%,
+    rgba(23, 151, 234, 0.18) 22%,
+    rgba(34, 207, 232, 0.72) 50%,
+    rgba(23, 151, 234, 0.18) 78%,
     rgba(23, 151, 234, 0) 100%
   );
 }
@@ -157,6 +171,7 @@
   height: 16px;
   object-fit: contain;
   flex-shrink: 0;
+  opacity: 0.9;
 }
 
 .services-editorial__title {
@@ -487,18 +502,37 @@
     padding: 4.2rem 0;
   }
 
+  .services-editorial__label {
+    width: max-content;
+    min-width: 138px;
+    max-width: 100%;
+    margin: 0 auto 0.82rem;
+    align-items: center;
+  }
+
   .services-editorial__eyebrow {
     font-size: 0.74rem;
+    text-align: center;
   }
 
   .services-editorial__accent {
     gap: 0.55rem;
-    margin-bottom: 0.82rem;
+    margin: 0.62rem auto 0;
   }
 
   .services-editorial__accent-line {
-    width: 46px;
-  }
+  width: 44px;
+  height: 1px;
+  min-height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(23, 151, 234, 0) 0%,
+    rgba(23, 151, 234, 0.14) 18%,
+    rgba(34, 207, 232, 0.42) 50%,
+    rgba(23, 151, 234, 0.14) 82%,
+    rgba(23, 151, 234, 0) 100%
+  );
+}
 
   .services-editorial__accent-butterfly {
     width: 14px;

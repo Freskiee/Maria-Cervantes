@@ -84,22 +84,30 @@
   height: 100%;
 }
 
+/* HEADER */
 .contact-modern-card__eyebrow {
-  display: inline-block;
+  display: block;
+  width: max-content;
+  min-width: 138px;
+  max-width: 100%;
   margin-bottom: 0;
   font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--color-primary);
+  text-align: center;
+  white-space: nowrap;
 }
 
 .contact-modern-card__accent {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 0.72rem;
-  width: fit-content;
+  width: max-content;
+  min-width: 138px;
+  max-width: 100%;
   margin: 0.72rem 0 1rem;
   user-select: none;
   cursor: default;
@@ -107,15 +115,17 @@
 
 .contact-modern-card__accent-line {
   display: block;
-  width: clamp(58px, 7vw, 96px);
-  height: 1px;
+  flex: 1 1 0;
+  width: auto;
+  height: 1.5px;
+  min-height: 1.5px;
   border-radius: 999px;
   background: linear-gradient(
     90deg,
     rgba(23, 151, 234, 0) 0%,
-    rgba(23, 151, 234, 0.14) 18%,
-    rgba(34, 207, 232, 0.45) 50%,
-    rgba(23, 151, 234, 0.14) 82%,
+    rgba(23, 151, 234, 0.18) 22%,
+    rgba(34, 207, 232, 0.72) 50%,
+    rgba(23, 151, 234, 0.18) 78%,
     rgba(23, 151, 234, 0) 100%
   );
 }
@@ -125,8 +135,8 @@
   height: 16px;
   object-fit: contain;
   flex-shrink: 0;
-  opacity: 0.8;
-  filter: saturate(0.85);
+  opacity: 0.9;
+  filter: none;
 }
 
 .contact-modern-card__title {
@@ -544,6 +554,35 @@
   .contact-modern-blob::after {
     border-radius: 22px;
   }
+
+.contact-modern-card__eyebrow {
+  width: max-content;
+  min-width: 138px;
+  max-width: 100%;
+  margin: 0 auto;
+  font-size: 0.74rem;
+  text-align: center;
+}
+
+.contact-modern-card__accent {
+  width: max-content;
+  min-width: 138px;
+  max-width: 100%;
+  justify-content: center;
+  gap: 0.55rem;
+  margin: 0.62rem auto 0.95rem;
+}
+
+.contact-modern-card__accent-line {
+  flex: 1 1 0;
+  width: auto;
+  height: 1px;
+  min-height: 1px;
+}
+.contact-modern-card__accent-butterfly {
+  width: 14px;
+  height: 14px;
+}
 
   .contact-modern-card__title {
     font-size: 1.9rem;
