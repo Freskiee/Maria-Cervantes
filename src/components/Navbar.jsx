@@ -50,6 +50,7 @@ function Navbar() {
                 if (document.body.classList.contains("mobile-menu-open")) {
                     unlockPageScroll();
                 }
+
                 setIsMenuOpen(false);
                 setActiveMobileLink("");
             }
@@ -119,7 +120,6 @@ function Navbar() {
                 }, 120);
             }, 80);
 
-
             return;
         }
 
@@ -156,16 +156,20 @@ function Navbar() {
     };
 
     return (
-        <nav className="navbar navbar-expand-xl custom-navbar fixed-top">
+        <nav
+            className="navbar navbar-expand-xl custom-navbar fixed-top"
+            aria-label="Navegación principal"
+        >
             <div className="container">
                 <a
                     className="navbar-brand brand-wrapper"
-                    href="#hero"
+                    href="/"
+                    aria-label="Ir al inicio de María Cervantes Forastieri"
                     onClick={handleTopClick}
                 >
                     <img
                         src="/mariposa-navbar@2x.png"
-                        alt="María Cervantes"
+                        alt="María Cervantes Forastieri"
                         className="navbar-icon"
                     />
 
@@ -176,7 +180,8 @@ function Navbar() {
                 </a>
 
                 <button
-                    className={`navbar-toggler custom-toggler ${isMenuOpen ? "is-open" : ""}`}
+                    className={`navbar-toggler custom-toggler ${isMenuOpen ? "is-open" : ""
+                        }`}
                     type="button"
                     aria-controls="mainNavbar"
                     aria-expanded={isMenuOpen}
@@ -201,6 +206,7 @@ function Navbar() {
                                 className={`nav-link ${activeMobileLink === "#hero" ? "is-active-mobile" : ""
                                     }`}
                                 href="#hero"
+                                aria-label="Ir a sección Inicio"
                                 onClick={(e) => handleSectionClick(e, "#hero")}
                             >
                                 <span>Inicio</span>
@@ -212,6 +218,7 @@ function Navbar() {
                                 className={`nav-link ${activeMobileLink === "#about" ? "is-active-mobile" : ""
                                     }`}
                                 href="#about"
+                                aria-label="Ir a sección Sobre mí"
                                 onClick={(e) => handleSectionClick(e, "#about")}
                             >
                                 <span>Sobre mí</span>
@@ -223,6 +230,7 @@ function Navbar() {
                                 className={`nav-link ${activeMobileLink === "#help" ? "is-active-mobile" : ""
                                     }`}
                                 href="#help"
+                                aria-label="Ir a sección Acompañamiento"
                                 onClick={(e) => handleSectionClick(e, "#help")}
                             >
                                 <span>Acompañamiento</span>
@@ -231,9 +239,12 @@ function Navbar() {
 
                         <li className="nav-item">
                             <a
-                                className={`nav-link ${activeMobileLink === "#therapy-services" ? "is-active-mobile" : ""
+                                className={`nav-link ${activeMobileLink === "#therapy-services"
+                                        ? "is-active-mobile"
+                                        : ""
                                     }`}
                                 href="#therapy-services"
+                                aria-label="Ir a sección Servicios"
                                 onClick={(e) => handleSectionClick(e, "#therapy-services")}
                             >
                                 <span>Servicios</span>
@@ -242,9 +253,12 @@ function Navbar() {
 
                         <li className="nav-item">
                             <a
-                                className={`nav-link ${activeMobileLink === "#testimonials" ? "is-active-mobile" : ""
+                                className={`nav-link ${activeMobileLink === "#testimonials"
+                                        ? "is-active-mobile"
+                                        : ""
                                     }`}
                                 href="#testimonials"
+                                aria-label="Ir a sección Testimonios"
                                 onClick={(e) => handleSectionClick(e, "#testimonials")}
                             >
                                 <span>Testimonios</span>
@@ -256,6 +270,7 @@ function Navbar() {
                                 className={`nav-link ${activeMobileLink === "#contact" ? "is-active-mobile" : ""
                                     }`}
                                 href="#contact"
+                                aria-label="Ir a sección Contacto"
                                 onClick={(e) => handleSectionClick(e, "#contact")}
                             >
                                 <span>Contacto</span>
@@ -267,7 +282,8 @@ function Navbar() {
                                 className="nav-cta nav-cta--ghost"
                                 href="https://wa.me/525550561776?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20para%20agendar%20una%20sesi%C3%B3n."
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noopener noreferrer"
+                                aria-label="Escribir por WhatsApp para solicitar información"
                                 onClick={closeMenuOnly}
                             >
                                 <i className="bi bi-whatsapp"></i>
@@ -279,6 +295,7 @@ function Navbar() {
                             <a
                                 className="nav-cta nav-cta--primary"
                                 href="#contact"
+                                aria-label="Agendar sesión desde la sección de contacto"
                                 onClick={(e) => handleSectionClick(e, "#contact")}
                             >
                                 Agendar sesión
