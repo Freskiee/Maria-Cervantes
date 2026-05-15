@@ -179,6 +179,44 @@ function ContactSection() {
                         className="contact-modern-card__icon-butterfly"
                       />
                     </span>
+
+                    <div>
+                      <span className="contact-modern-card__label">
+                        Redes sociales
+                      </span>
+
+                      <div className="contact-modern-card__socials">
+                        <a
+                          href="https://www.instagram.com/marcervs.psicotanato/"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="contact-modern-card__social-link"
+                        >
+                          <i className="bi bi-instagram"></i>
+                          <span>Instagram</span>
+                        </a>
+
+                        <a
+                          href="https://www.facebook.com/profile.php?id=61557157611550&mibextid=LQQJ4d"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="contact-modern-card__social-link"
+                        >
+                          <i className="bi bi-facebook"></i>
+                          <span>Facebook</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="contact-modern-card__info-item">
+                    <span className="contact-modern-card__icon-wrap">
+                      <img
+                        src="/mariposa-navbar@2x.png"
+                        alt=""
+                        className="contact-modern-card__icon-butterfly"
+                      />
+                    </span>
                     <div>
                       <span className="contact-modern-card__label">Atención</span>
                       <span className="contact-modern-card__value">
@@ -330,6 +368,7 @@ function ContactSection() {
                           <option value="" disabled>
                             Selecciona una opción
                           </option>
+
                           {consultationReasons.map((reason) => (
                             <option key={reason} value={reason}>
                               {reason}
@@ -368,6 +407,7 @@ function ContactSection() {
                             status.sending ? "bi-hourglass-split" : "bi-send"
                           }`}
                         ></i>
+
                         <span>
                           {status.sending ? "Enviando..." : "Enviar solicitud"}
                         </span>

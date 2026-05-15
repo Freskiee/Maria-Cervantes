@@ -208,6 +208,44 @@
   color: #1b4f4b;
 }
 
+.contact-modern-card__socials {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.contact-modern-card__social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.52;
+  color: #4f4a44;
+  text-decoration: none;
+  transition:
+    color 0.22s ease,
+    opacity 0.22s ease,
+    transform 0.22s ease;
+}
+
+.contact-modern-card__social-link i {
+  font-size: 0.95rem;
+  line-height: 1;
+  color: #7a6f66;
+}
+
+.contact-modern-card__social-link:hover {
+  color: #1b4f4b;
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.contact-modern-card__social-link:hover i {
+  color: #1b4f4b;
+}
+
 /* ACCIONES */
 .contact-modern-card__actions {
   display: flex;
